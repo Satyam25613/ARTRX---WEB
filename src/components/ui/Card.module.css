@@ -1,0 +1,35 @@
+/* Double-bezel architecture: a tinted outer shell (hairline ring, 6px mat)
+   holding a white inner core with its own concentric radius and an inset top
+   highlight — so cards read as physical, machined objects, not flat planes. */
+.card {
+  background: var(--color-cream);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-shell);
+  padding: 6px;
+  box-shadow: var(--shadow-ambient);
+}
+
+.core {
+  background: var(--color-white);
+  border-radius: var(--radius-core);
+  padding: 36px;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  height: 100%;
+}
+
+.hoverable {
+  transition:
+    transform 0.55s var(--ease-out-expo),
+    box-shadow 0.55s var(--ease-out-expo);
+}
+
+.hoverable:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-ambient-lift);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hoverable:hover {
+    transform: none;
+  }
+}

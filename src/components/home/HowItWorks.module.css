@@ -1,0 +1,95 @@
+.section {
+  padding: var(--section-pad) 0;
+  background: var(--color-white);
+  /* Bleed the white band edge-to-edge without a hard seam against the beige page. */
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 24px;
+}
+
+/* Double-bezel step cards with an oversized serif numeral anchoring each one. */
+.step {
+  background: var(--color-cream);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-shell);
+  padding: 6px;
+  height: 100%;
+  transition:
+    transform 0.55s var(--ease-out-expo),
+    box-shadow 0.55s var(--ease-out-expo);
+}
+
+.step:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-ambient-lift);
+}
+
+.stepCore {
+  position: relative;
+  background: var(--color-white);
+  border-radius: var(--radius-core);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  padding: 30px 26px;
+  height: 100%;
+}
+
+.stepNumber {
+  position: absolute;
+  top: 22px;
+  right: 26px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 40px;
+  line-height: 1;
+  color: rgba(47, 122, 92, 0.28);
+  margin: 0;
+}
+
+.iconWrap {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--color-sage-light);
+  color: var(--color-sage-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.stepTitle {
+  font-size: 21px;
+  font-weight: 580;
+  margin-bottom: 10px;
+}
+
+.stepDescription {
+  font-size: 14.5px;
+  color: var(--color-muted);
+  line-height: 1.65;
+}
+
+@media (min-width: 720px) {
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1080px) {
+  .steps {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .step:hover {
+    transform: none;
+  }
+}

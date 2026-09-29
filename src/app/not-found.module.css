@@ -1,0 +1,26 @@
+.section {
+  padding: clamp(120px, 16vw, 200px) 0;
+  text-align: center;
+}
+
+.eyebrow {
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-sage);
+  margin-bottom: 18px;
+}
+
+.title {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 550;
+  margin-bottom: 18px;
+}
+
+.body {
+  color: var(--color-muted);
+  font-size: 17px;
+  margin-bottom: 36px;
+}

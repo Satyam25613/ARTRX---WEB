@@ -1,0 +1,88 @@
+.band {
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  background: var(--color-cream);
+  padding: 22px 0;
+  overflow: hidden;
+}
+
+.staticList {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Soft fade at the edges so prompts drift in and out rather than clip flat. */
+.viewport {
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  /* Constant velocity is the physically correct motion for an endless loop —
+     linear is intentional here, unlike state transitions. */
+  animation: marquee 64s linear infinite;
+}
+
+.band:hover .track,
+.band:focus-within .track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.hiddenRow {
+  /* Visually identical to the live row; purely the seamless-loop duplicate. */
+  display: flex;
+  align-items: center;
+}
+
+.prompt {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 19px;
+  color: var(--color-navy);
+  padding-right: 44px;
+}
+
+.sparkle {
+  color: var(--color-sage);
+  flex-shrink: 0;
+}

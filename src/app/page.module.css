@@ -1,0 +1,672 @@
+.pageShell {
+  width: min(1480px, 100% - clamp(1rem, 5vw, 5rem));
+  margin: 0 auto;
+  padding: 1.05rem 0 0;
+}
+
+.heroSection {
+  width: 100%;
+}
+
+.heroFigure {
+  position: relative;
+  min-height: min(900px, max(640px, calc(100svh - 110px)));
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius-shell);
+  background: var(--color-navy);
+}
+
+.heroPhoto {
+  object-fit: cover;
+  object-position: center 50%;
+}
+
+.heroShade {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(18, 39, 69, 0.52) 0%, rgba(18, 39, 69, 0.32) 38%, rgba(18, 39, 69, 0.02) 76%),
+    linear-gradient(0deg, rgba(18, 39, 69, 0.78) 0%, rgba(18, 39, 69, 0.24) 39%, rgba(18, 39, 69, 0) 70%);
+}
+
+.heroCopy {
+  position: absolute;
+  z-index: 2;
+  bottom: clamp(4rem, 8vw, 6.4rem);
+  left: clamp(1.5rem, 6vw, 6.5rem);
+  width: min(620px, calc(100% - 3rem));
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  color: var(--color-sage-deep);
+  font-family: var(--font-heading);
+  font-size: 0.69rem;
+  font-weight: 750;
+  letter-spacing: 0.15em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.eyebrowLight {
+  color: #d4e4d8;
+}
+
+.heroCopy h1 {
+  max-width: 8ch;
+  color: var(--color-cream);
+  font-size: clamp(4rem, 5vw, 5.6rem);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 0.96;
+}
+
+.heroLead {
+  max-width: 43ch;
+  margin-top: 1rem;
+  color: rgba(253, 251, 247, 0.92);
+  font-size: clamp(1rem, 1.25vw, 1.16rem);
+  line-height: 1.62;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.85rem 1.5rem;
+  margin-top: 1.7rem;
+}
+
+.primaryAction,
+.contactAction {
+  display: inline-flex;
+  min-height: 3.1rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  padding: 0.8rem 1.35rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-cream);
+  color: var(--color-navy);
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 180ms var(--ease-out-expo), background-color 180ms var(--ease-out-expo);
+}
+
+.primaryAction:hover,
+.contactAction:hover {
+  transform: translateY(-2px);
+  background: var(--color-sage-light);
+}
+
+.textAction,
+.inlineLink {
+  color: var(--color-navy);
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 650;
+  text-decoration-color: transparent;
+  text-underline-offset: 5px;
+  transition: color 180ms var(--ease-out-expo), text-decoration-color 180ms var(--ease-out-expo);
+}
+
+.textAction {
+  color: var(--color-cream);
+  text-decoration-color: rgba(253, 251, 247, 0.38);
+}
+
+.textAction:hover {
+  color: var(--color-sage-light);
+  text-decoration-color: currentColor;
+}
+
+.inlineLink:hover {
+  color: var(--color-sage-deep);
+  text-decoration-color: currentColor;
+}
+
+.heroCaption {
+  position: absolute;
+  z-index: 2;
+  right: 0.8rem;
+  bottom: 0.8rem;
+  max-width: min(360px, calc(100% - 1.6rem));
+  padding: 0.55rem 0.78rem;
+  border: 1px solid rgba(253, 251, 247, 0.2);
+  border-radius: var(--radius-card-sm);
+  background: rgba(26, 54, 93, 0.88);
+  color: var(--color-cream);
+  font-size: 0.73rem;
+  line-height: 1.5;
+}
+
+.contextSection {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.78fr) minmax(320px, 1.15fr) minmax(230px, 0.75fr);
+  gap: clamp(1.6rem, 3.4vw, 3.4rem);
+  padding: clamp(4.5rem, 9vw, 8rem) clamp(0.2rem, 4vw, 3.5rem);
+  border-bottom: 1px solid var(--hairline-strong);
+}
+
+.contextHeading h2,
+.collectionHeading h2,
+.aboutCopy h2,
+.contactStrip h2 {
+  max-width: 14ch;
+  color: var(--color-navy);
+  font-size: clamp(2.3rem, 4.7vw, 4.35rem);
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.contextBody {
+  max-width: 610px;
+  padding-top: 0.25rem;
+}
+
+.contextBody > p:first-child {
+  color: var(--color-ink);
+  font-size: clamp(1rem, 1.35vw, 1.14rem);
+  line-height: 1.8;
+}
+
+.contextSource {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--hairline-strong);
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  line-height: 1.65;
+}
+
+.conceptArtwork {
+  align-self: center;
+  min-width: 0;
+  margin: 0;
+  padding: 0.55rem;
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-shell);
+  background: var(--color-cream);
+  box-shadow: var(--shadow-ambient);
+  transform: rotate(0.8deg);
+}
+
+.conceptImageFrame {
+  position: relative;
+  aspect-ratio: 1.12 / 1;
+  overflow: hidden;
+  border-radius: var(--radius-card-sm);
+  background: var(--color-beige-dark);
+}
+
+.conceptImageFrame img {
+  object-fit: cover;
+}
+
+.conceptArtwork figcaption {
+  padding: 0.7rem 0.45rem 0.2rem;
+  color: var(--color-muted);
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+.collectionSection {
+  padding: clamp(5rem, 9vw, 8rem) 0 clamp(4.8rem, 8vw, 7rem);
+}
+
+.collectionHeading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.55fr);
+  align-items: end;
+  gap: 1.2rem 4rem;
+  margin: 0 clamp(0.2rem, 4vw, 3.5rem) clamp(2rem, 4vw, 3.2rem);
+}
+
+.collectionHeading h2 {
+  max-width: 13ch;
+}
+
+.collectionHeading > p {
+  max-width: 44ch;
+  color: var(--color-muted);
+  font-size: 0.94rem;
+  line-height: 1.75;
+}
+
+.collectionGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.22fr) minmax(290px, 0.78fr);
+  grid-template-rows: repeat(2, minmax(250px, 1fr));
+  gap: clamp(1rem, 2.1vw, 1.9rem);
+}
+
+.collectionItem {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  margin: 0;
+}
+
+.process {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+.prompt {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.drawing {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.collectionImage {
+  position: relative;
+  min-height: 220px;
+  flex: 1;
+  overflow: hidden;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-card-sm);
+  background: var(--color-cream);
+}
+
+.process .collectionImage {
+  min-height: 560px;
+  background: var(--color-beige-dark);
+}
+
+.prompt .collectionImage,
+.drawing .collectionImage {
+  background: #fffefa;
+}
+
+.collectionPhoto {
+  object-fit: contain;
+  padding: 0.7rem;
+}
+
+.process .collectionPhoto {
+  object-fit: cover;
+  padding: 0;
+}
+
+.collectionCaption {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.8rem 0.1rem 0;
+}
+
+.collectionLabel {
+  color: var(--color-sage-deep);
+  font-family: var(--font-heading);
+  font-size: 0.66rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.collectionTitle {
+  color: var(--color-navy);
+  font-size: 0.96rem;
+  font-weight: 650;
+}
+
+.collectionDetail {
+  color: var(--color-muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.galleryLinkRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding: 1rem 0.1rem 0;
+  border-top: 1px solid var(--hairline-strong);
+  color: var(--color-muted);
+  font-size: 0.88rem;
+}
+
+.inlineLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  white-space: nowrap;
+}
+
+.aboutStrip {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+  min-height: 460px;
+  background: var(--color-navy);
+  color: var(--color-cream);
+}
+
+.aboutCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(2.4rem, 5.5vw, 5rem);
+}
+
+.aboutCopy .eyebrow,
+.contactStrip .eyebrow {
+  color: #b7d2c1;
+}
+
+.aboutCopy h2 {
+  max-width: 11ch;
+  color: var(--color-cream);
+}
+
+.aboutCopy > p:not(.eyebrow) {
+  max-width: 48ch;
+  margin-top: 1.15rem;
+  color: rgba(253, 251, 247, 0.84);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.lightLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+  color: var(--color-cream);
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 650;
+  text-decoration-color: rgba(253, 251, 247, 0.45);
+  text-underline-offset: 5px;
+}
+
+.lightLink:hover {
+  color: var(--color-sage-light);
+  text-decoration-color: currentColor;
+}
+
+.aboutArtwork {
+  position: relative;
+  min-height: 350px;
+  margin: 0.7rem 0.7rem 0.7rem 0;
+  overflow: hidden;
+  border-radius: var(--radius-card-sm);
+  background: #fffefa;
+}
+
+.aboutArtwork img {
+  object-fit: contain;
+  padding: clamp(1rem, 2.4vw, 2rem);
+}
+
+.aboutArtwork figcaption {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  padding: 0.65rem 0.8rem;
+  background: rgba(253, 251, 247, 0.96);
+  color: var(--color-navy);
+  font-size: 0.74rem;
+}
+
+.contactStrip {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: clamp(3.8rem, 7vw, 6rem) 0;
+}
+
+.contactStrip h2 {
+  font-size: clamp(2rem, 3.5vw, 3.4rem);
+}
+
+.contactAction {
+  background: var(--color-navy);
+  color: var(--color-cream);
+}
+
+.contactAction:hover {
+  background: var(--color-navy-light);
+  color: var(--color-cream);
+}
+
+@media (max-width: 900px) {
+  .heroFigure {
+    min-height: min(760px, max(680px, calc(100svh - 100px)));
+  }
+
+  .collectionGrid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(250px, 0.95fr);
+  }
+
+  .contextSection {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(1.5rem, 5vw, 3rem);
+  }
+
+  .conceptArtwork {
+    grid-column: 1 / -1;
+    width: min(100%, 520px);
+    justify-self: end;
+  }
+
+  .conceptImageFrame {
+    aspect-ratio: 1.6 / 1;
+  }
+
+  .process .collectionImage {
+    min-height: 500px;
+  }
+}
+
+@media (max-width: 680px) {
+  .pageShell {
+    width: min(100% - 1rem, 560px);
+    padding-top: 0.55rem;
+  }
+
+  .heroFigure {
+    min-height: min(760px, max(620px, calc(100svh - 88px)));
+    border-radius: var(--radius-shell);
+  }
+
+  .heroPhoto {
+    object-position: 82% center;
+  }
+
+  .heroShade {
+    background:
+      linear-gradient(0deg, rgba(18, 39, 69, 0.88) 0%, rgba(18, 39, 69, 0.61) 43%, rgba(18, 39, 69, 0.08) 100%),
+      linear-gradient(90deg, rgba(18, 39, 69, 0.2), rgba(18, 39, 69, 0));
+  }
+
+  .heroCopy {
+    right: 1.25rem;
+    bottom: 4.4rem;
+    left: 1.25rem;
+    width: auto;
+  }
+
+  .heroCopy h1 {
+    max-width: 9ch;
+    font-size: clamp(4rem, 17vw, 5.5rem);
+  }
+
+  .heroLead {
+    max-width: 35ch;
+    margin-top: 0.8rem;
+    font-size: 0.98rem;
+    line-height: 1.58;
+  }
+
+  .actions {
+    gap: 0.8rem 1rem;
+    margin-top: 1.3rem;
+  }
+
+  .primaryAction {
+    min-height: 2.9rem;
+    padding: 0.7rem 1rem;
+    font-size: 0.83rem;
+  }
+
+  .textAction {
+    font-size: 0.84rem;
+  }
+
+  .heroCaption {
+    right: 0.55rem;
+    bottom: 0.55rem;
+    left: 0.55rem;
+    max-width: none;
+    text-align: center;
+  }
+
+  .contextSection {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    padding: 4rem 0.3rem;
+  }
+
+  .conceptArtwork {
+    grid-column: auto;
+    width: 100%;
+    max-width: 470px;
+    justify-self: start;
+  }
+
+  .contextHeading h2,
+  .collectionHeading h2,
+  .aboutCopy h2 {
+    font-size: clamp(2.25rem, 9vw, 3.4rem);
+  }
+
+  .contextBody > p:first-child {
+    font-size: 1rem;
+  }
+
+  .collectionSection {
+    padding: 4.25rem 0;
+  }
+
+  .collectionHeading {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+    margin: 0 0 1.65rem;
+  }
+
+  .collectionHeading > p {
+    font-size: 0.88rem;
+  }
+
+  .collectionGrid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 1.2rem 0.75rem;
+  }
+
+  .process {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .prompt {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .drawing {
+    grid-column: 2;
+    grid-row: auto;
+  }
+
+  .collectionImage {
+    min-height: 0;
+    aspect-ratio: 0.9 / 1;
+    border-radius: var(--radius-card-sm);
+  }
+
+  .process .collectionImage {
+    min-height: 0;
+    aspect-ratio: 1.12 / 1;
+  }
+
+  .collectionPhoto {
+    padding: 0.35rem;
+  }
+
+  .process .collectionPhoto {
+    padding: 0;
+  }
+
+  .collectionCaption {
+    gap: 0.25rem;
+    padding-top: 0.65rem;
+  }
+
+  .collectionLabel {
+    font-size: 0.59rem;
+    letter-spacing: 0.08em;
+  }
+
+  .collectionTitle {
+    font-size: 0.82rem;
+    line-height: 1.35;
+  }
+
+  .collectionDetail {
+    font-size: 0.7rem;
+  }
+
+  .galleryLinkRow {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 1.5rem;
+  }
+
+  .aboutStrip {
+    grid-template-columns: 1fr;
+  }
+
+  .aboutCopy {
+    padding: 2.5rem 1.35rem 2rem;
+  }
+
+  .aboutArtwork {
+    min-height: 280px;
+    margin: 0 0.45rem 0.45rem;
+  }
+
+  .aboutArtwork img {
+    padding: 0.8rem;
+  }
+
+  .contactStrip {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 3.5rem 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primaryAction,
+  .contactAction,
+  .textAction,
+  .inlineLink,
+  .lightLink {
+    transition: none;
+  }
+}

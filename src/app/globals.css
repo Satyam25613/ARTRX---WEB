@@ -1,0 +1,191 @@
+:root {
+  /* Provisional review colors sampled from the user-supplied logo and the
+     first discovery call's color discussion; the final brand is unconfirmed. */
+  --color-navy: #183058;
+  --color-navy-light: #28486b;
+  --color-sage: #387058;
+  --color-sage-deep: #285a46;
+  --color-sage-light: #e8f1ec;
+  --color-beige: #faf6f1;
+  --color-cream: #fdfbf7;
+  --color-beige-dark: #f0eae1;
+  --color-ink: #1f2430;
+  --color-muted: #5a6272;
+  --color-white: #ffffff;
+
+  /* System font stacks keep the unapproved typography easy to replace. */
+  --font-display: Georgia, Cambria, "Times New Roman", serif;
+  --font-heading: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Motion — one easing family site-wide; simulates mass settling into place.
+     Never use plain ease/linear: every transition picks from these. */
+  --ease-out-expo: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-spring: cubic-bezier(0.34, 1.3, 0.5, 1);
+
+  /* Concentric radii for the double-bezel card architecture — the inner core
+     radius derives from the shell so nested curves stay parallel. */
+  --radius-pill: 100px;
+  --radius-shell: 28px;
+  --radius-core: calc(var(--radius-shell) - 6px);
+  --radius-card: 20px;
+  --radius-card-sm: 14px;
+
+  /* Layered ambient shadows — navy-tinted and highly diffused, never black. */
+  --shadow-ambient:
+    0 1px 2px rgba(24, 48, 88, 0.04),
+    0 12px 32px rgba(24, 48, 88, 0.07);
+  --shadow-ambient-lift:
+    0 2px 4px rgba(24, 48, 88, 0.05),
+    0 24px 56px rgba(24, 48, 88, 0.13);
+  --shadow-card: var(--shadow-ambient);
+  --shadow-card-hover: var(--shadow-ambient-lift);
+
+  /* Hairlines are the only borders — soft navy at low alpha, or white on dark. */
+  --hairline: rgba(24, 48, 88, 0.08);
+  --hairline-strong: rgba(24, 48, 88, 0.14);
+  --hairline-light: rgba(255, 255, 255, 0.14);
+
+  --container-width: 1140px;
+
+  /* Section rhythm — premium layouts breathe heavily between blocks. */
+  --section-pad: clamp(88px, 11vw, 148px);
+
+  /* Breakpoints (documented, not tokenized — custom properties can't be used in
+     media query conditions). Mobile-first: base styles are mobile. */
+  /* sm: 640px · md: 768px · lg: 1024px · xl: 1280px */
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-beige);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Kill the double-tap-zoom delay on every interactive element. */
+a,
+button,
+[role="tab"],
+[role="button"] {
+  touch-action: manipulation;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 560;
+  font-optical-sizing: auto;
+  color: var(--color-navy);
+  margin: 0;
+  letter-spacing: -0.005em;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Film-grain overlay — the physical paper feel. Fixed and click-through, so it
+   never repaints on scroll and never intercepts a pointer. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0.032;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 240px 240px;
+}
+
+/* Single source of truth for keyboard-focus visibility across the whole site. */
+:focus-visible {
+  outline: 3px solid var(--color-sage);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -60px;
+  background: var(--color-navy);
+  color: var(--color-white);
+  padding: 12px 20px;
+  border-radius: var(--radius-card-sm);
+  font-weight: 600;
+  z-index: 2000;
+  transition: top 0.2s var(--ease-out-expo);
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+::selection {
+  background: var(--color-sage-light);
+  color: var(--color-sage-deep);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

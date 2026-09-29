@@ -1,0 +1,130 @@
+import type { GalleryItem } from "@/lib/types";
+
+const TEMPLATES = "/images/gallery/guided-templates";
+const ARTWORK = "/images/gallery/patient-artwork";
+const ORIENTED_ARTWORK = `${ARTWORK}/oriented`;
+
+// Images and prompt names were checked against the live ArtRX gallery on
+// 29 September 2026. Captions describe only what is visible in each image.
+export const GALLERY_ITEMS: GalleryItem[] = [
+  {
+    id: "template-draw-you-and-your-friends",
+    category: "prompt",
+    src: `${TEMPLATES}/template-draw-you-and-your-friends.jpg`,
+    title: "Draw You and Your Friends",
+    alt: "Blank illustrated prompt sheet titled Draw You and Your Friends, with sea-animal drawings around the page.",
+    caption: "An open drawing area framed by ocean illustrations.",
+  },
+  {
+    id: "template-out-of-the-hospital",
+    category: "prompt",
+    src: `${TEMPLATES}/template-out-of-the-hospital.jpg`,
+    title: "What Will You Do Once You're Out of the Hospital?",
+    alt: "Blank illustrated prompt sheet asking what you will do once you are out of the hospital, with animal illustrations around the page.",
+    caption: "A question about plans after leaving hospital.",
+  },
+  {
+    id: "template-draw-your-family",
+    category: "prompt",
+    src: `${TEMPLATES}/template-draw-your-family.jpg`,
+    title: "Draw Your Family",
+    alt: "Blank illustrated prompt sheet titled Draw Your Family, with sea-animal drawings around the page.",
+    caption: "A family prompt with illustrated ocean borders.",
+  },
+  {
+    id: "template-summer-plans",
+    category: "prompt",
+    src: `${TEMPLATES}/template-summer-plans.jpg`,
+    title: "What Do You Want to Do Over the Summer?",
+    alt: "Blank illustrated prompt sheet asking what you want to do over the summer, with animal drawings around the page.",
+    caption: "A question about summer plans.",
+  },
+  {
+    id: "template-favorite-animal",
+    category: "prompt",
+    src: `${TEMPLATES}/template-favorite-animal.jpg`,
+    title: "What's Your Favorite Animal?",
+    alt: "Blank illustrated prompt sheet asking what your favorite animal is, with animal drawings around the page.",
+    caption: "A favorite-animal prompt with a large open space to draw.",
+  },
+  {
+    id: "template-favorite-thing-to-do",
+    category: "prompt",
+    src: `${TEMPLATES}/template-favorite-thing-to-do.jpg`,
+    title: "What Is Your Favorite Thing to Do?",
+    alt: "Blank illustrated prompt sheet asking what your favorite thing to do is, with seal and penguin drawings.",
+    caption: "An open question about a favorite activity.",
+  },
+  {
+    id: "template-memorable-experience",
+    category: "prompt",
+    src: `${TEMPLATES}/template-memorable-experience.jpg`,
+    title: "What Is a Memorable Experience for You?",
+    alt: "Blank illustrated prompt sheet asking about a memorable experience, with toucan and macaw drawings.",
+    caption: "A prompt about a memorable experience.",
+  },
+  {
+    id: "template-grow-up",
+    category: "prompt",
+    src: `${TEMPLATES}/template-grow-up.jpg`,
+    title: "What Do You Want to Be When You Grow Up?",
+    alt: "Blank illustrated prompt sheet asking what you want to be when you grow up, with animal drawings around the page.",
+    caption: "A question about future hopes and ideas.",
+  },
+  {
+    id: "template-favorite-food",
+    category: "prompt",
+    src: `${TEMPLATES}/template-favorite-food.jpg`,
+    title: "What's Your Favorite Food?",
+    alt: "Blank illustrated prompt sheet asking what your favorite food is, with a fox and scorpion drawing around the page.",
+    caption: "A familiar question with room to draw an answer.",
+  },
+  {
+    id: "process-coloring-favorite-food",
+    category: "in-progress",
+    src: `${ARTWORK}/process-coloring-favorite-food.jpg`,
+    title: "Coloring a Favorite Food",
+    alt: "Hands coloring an ArtRX favorite-food prompt sheet, with colored pencils nearby.",
+    caption: "A prompt page being filled in with color.",
+  },
+  {
+    id: "process-sketching-memorable-experience",
+    category: "in-progress",
+    src: `${ARTWORK}/process-sketching-memorable-experience.jpg`,
+    title: "Sketching on a Prompt Sheet",
+    alt: "Hands sketching with a pencil on an illustrated ArtRX prompt sheet at a table.",
+    caption: "Pencil marks taking shape on the page.",
+  },
+  {
+    id: "process-sketching-pizza",
+    category: "in-progress",
+    src: `${ARTWORK}/process-sketching-pizza.jpg`,
+    title: "Sketching a Favorite Food",
+    alt: "A pencil sketch taking shape on an ArtRX favorite-food prompt sheet, with art materials nearby.",
+    caption: "A drawing in progress on a favorite-food prompt.",
+  },
+  {
+    id: "artwork-pizza-drawing",
+    category: "drawing",
+    src: `${ORIENTED_ARTWORK}/artwork-pizza-drawing.jpg`,
+    title: "A Favorite Food, in Color",
+    alt: "Colored-pencil drawing of a pizza on an ArtRX favorite-food prompt sheet.",
+    caption: "A completed drawing on the favorite-food prompt.",
+  },
+  {
+    id: "artwork-japan-drawing",
+    category: "drawing",
+    src: `${ORIENTED_ARTWORK}/artwork-japan-drawing.jpg`,
+    title: "A Memorable Experience",
+    alt: "Colored-pencil drawing of a building with flags and the word Japan on an ArtRX prompt sheet.",
+    caption: "A completed drawing on the memorable-experience prompt.",
+  },
+  {
+    id: "artwork-animal-drawing",
+    category: "drawing",
+    src: `${ORIENTED_ARTWORK}/artwork-animal-drawing.jpg`,
+    title: "A Favorite Animal",
+    alt: "Colored-pencil drawing of an animal on an ArtRX favorite-animal prompt sheet.",
+    caption: "A completed drawing on the favorite-animal prompt.",
+  },
+];

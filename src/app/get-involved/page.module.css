@@ -1,0 +1,19 @@
+.section {
+  padding: clamp(56px, 8vw, 104px) 0 var(--section-pad);
+}
+
+/* The form sits in a matted double-bezel frame, like everything precious here. */
+.formBox {
+  max-width: 660px;
+  margin: 0 auto;
+  background: var(--color-cream);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-shell);
+  padding: 6px;
+  box-shadow: var(--shadow-ambient);
+}
+
+.formBox > * {
+  background: var(--color-white);
+  border-radius: var(--radius-core);
+}

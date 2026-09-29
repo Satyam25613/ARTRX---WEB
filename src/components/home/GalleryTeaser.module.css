@@ -1,0 +1,81 @@
+.section {
+  padding: var(--section-pad) 0;
+  background: var(--color-white);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+/* Artwork presented like a matted gallery piece: cream mat, hairline frame,
+   and the image in its own concentric radius — a double bezel. */
+.frame {
+  margin: 0;
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--color-cream);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-shell);
+  padding: 10px;
+  box-shadow: var(--shadow-ambient);
+  overflow: hidden;
+  transition:
+    transform 0.6s var(--ease-spring),
+    box-shadow 0.6s var(--ease-out-expo);
+}
+
+/* Alternate frames tilt a hair the other way — a quiet Z-axis rhythm. */
+.frameTilt {
+  transform: rotate(0.75deg);
+}
+
+.frame:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-ambient-lift);
+}
+
+.image {
+  border-radius: calc(var(--radius-shell) - 10px);
+  object-fit: cover;
+  transition: transform 0.7s var(--ease-out-expo);
+}
+
+.frame:hover .image {
+  transform: scale(1.035);
+}
+
+.cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}
+
+@media (min-width: 700px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 699px) {
+  .frameTilt {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .frame,
+  .frameTilt {
+    transform: none;
+  }
+
+  .frame:hover {
+    transform: none;
+  }
+
+  .frame:hover .image {
+    transform: none;
+  }
+}

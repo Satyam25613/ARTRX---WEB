@@ -1,0 +1,254 @@
+/* Floating detached glass pill — never glued edge-to-edge to the viewport.
+   It retreats while scrolling down and returns the moment you scroll up. */
+.dock {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 16px 16px 0;
+  transition: transform 0.5s var(--ease-out-expo);
+}
+
+/* Scroll behavior must never leave keyboard focus hidden above the viewport. */
+.dock:focus-within {
+  transform: translateY(0) !important;
+  transition-duration: 0.18s;
+}
+
+.pill {
+  position: relative;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 5px 8px 5px 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(253, 251, 247, 0.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--hairline);
+  box-shadow: var(--shadow-ambient);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+}
+
+.brandMark {
+  position: relative;
+  display: block;
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+  overflow: hidden;
+}
+
+.brandMarkImage {
+  position: absolute;
+  top: -14px;
+  left: -22px;
+  max-width: none;
+  object-fit: contain;
+}
+
+.brandName {
+  font-family: var(--font-heading);
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--color-navy);
+  letter-spacing: -0.01em;
+}
+
+.previewBadge {
+  padding: 0.28rem 0.55rem;
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-pill);
+  color: var(--color-muted);
+  font-family: var(--font-heading);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.links {
+  display: none;
+  list-style: none;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.link,
+.linkActive {
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 14.5px;
+  color: var(--color-ink);
+  transition: color 0.35s var(--ease-out-expo);
+}
+
+.link:hover {
+  color: var(--color-sage);
+}
+
+.linkActive {
+  color: var(--color-sage);
+}
+
+.ctaDesktop {
+  display: none;
+}
+
+/* Hamburger — two lines that morph into an X, never an icon swap. */
+.menuToggle {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 42px;
+  height: 42px;
+  background: transparent;
+  border: 1px solid var(--hairline);
+  border-radius: 50%;
+  color: var(--color-navy);
+  cursor: pointer;
+  padding: 0;
+  transition:
+    background 0.35s var(--ease-out-expo),
+    border-color 0.35s var(--ease-out-expo);
+}
+
+.menuToggle:hover {
+  background: var(--color-white);
+  border-color: var(--hairline-strong);
+}
+
+.menuLine {
+  display: block;
+  width: 16px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform 0.4s var(--ease-spring);
+}
+
+.menuToggleOpen .menuLine:nth-child(1) {
+  transform: translateY(3.5px) rotate(45deg);
+}
+
+.menuToggleOpen .menuLine:nth-child(2) {
+  transform: translateY(-3.5px) rotate(-45deg);
+}
+
+/* Sage reading-progress hairline along the bottom edge of the pill. */
+.progress {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: -1px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-sage);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+/* Full-screen glass overlay with staggered link reveals. */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 990;
+  background: rgba(250, 246, 240, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 48px;
+  padding: 110px 32px 48px;
+  animation: overlayIn 0.4s var(--ease-out-expo) both;
+}
+
+.overlay[hidden] {
+  display: none;
+}
+
+@keyframes overlayIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.mobileLinks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mobileItem {
+  animation: riseIn 0.6s var(--ease-out-expo) both;
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobileLink,
+.mobileLinkActive {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: clamp(34px, 9vw, 46px);
+  font-weight: 550;
+  text-decoration: none;
+  color: var(--color-navy);
+  line-height: 1.25;
+}
+
+.mobileLinkActive {
+  color: var(--color-sage);
+  font-style: italic;
+}
+
+.mobileCta {
+  animation: riseIn 0.6s var(--ease-out-expo) both;
+}
+
+@media (min-width: 900px) {
+  .links {
+    display: flex;
+    align-items: center;
+  }
+
+  .ctaDesktop {
+    display: block;
+  }
+
+  .menuToggle {
+    display: none;
+  }
+
+  .overlay {
+    display: none;
+  }
+}
