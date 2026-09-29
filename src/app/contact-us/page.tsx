@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ContactExperience } from "@/components/get-involved/ContactExperience";
+import { Reveal } from "@/components/ui/Reveal";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -16,7 +17,7 @@ const CONTACT_EMAIL = "artrx39@gmail.com";
 export default function ContactPage() {
   return (
     <div className={styles.pageShell}>
-      <section className={styles.contact} aria-labelledby="contact-title">
+      <Reveal><section className={styles.contact} aria-labelledby="contact-title">
         <div className={styles.contactCopy}>
           <p className={styles.eyebrow}>A note to ArtRX</p>
           <h1 id="contact-title">Start with a note.</h1>
@@ -40,8 +41,9 @@ export default function ContactPage() {
           </Link>
         </div>
       </section>
+      </Reveal>
 
-      <section className={styles.formsSection} aria-labelledby="forms-title">
+      <Reveal delay={60}><section className={styles.formsSection} aria-labelledby="forms-title">
         <div className={styles.formsHeader}>
           <div>
             <p className={styles.eyebrow}>Choose a starting point</p>
@@ -81,6 +83,7 @@ export default function ContactPage() {
           </p>
         </div>
       </section>
+      </Reveal>
     </div>
   );
 }

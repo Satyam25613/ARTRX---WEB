@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { Reveal } from "@/components/ui/Reveal";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -74,6 +75,7 @@ export default function HomePage() {
         </figure>
       </section>
 
+      <Reveal>
       <section className={styles.contextSection} aria-labelledby="context-title">
         <div className={styles.contextHeading}>
           <p className={styles.eyebrow}>The idea</p>
@@ -117,7 +119,9 @@ export default function HomePage() {
           </figcaption>
         </figure>
       </section>
+      </Reveal>
 
+      <Reveal delay={70}>
       <section className={styles.collectionSection} aria-labelledby="collection-title">
         <header className={styles.collectionHeading}>
           <div>
@@ -163,7 +167,9 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+      </Reveal>
 
+      <Reveal delay={70}>
       <section className={styles.aboutStrip} aria-labelledby="about-title">
         <div className={styles.aboutCopy}>
           <p className={styles.eyebrow}>About ArtRX</p>
@@ -189,7 +195,9 @@ export default function HomePage() {
           <figcaption>Draw Your Family · ArtRX prompt sheet</figcaption>
         </figure>
       </section>
+      </Reveal>
 
+      <Reveal delay={70}>
       <section className={styles.contactStrip} aria-labelledby="contact-title">
         <div>
           <p className={styles.eyebrow}>Contact ArtRX</p>
@@ -199,6 +207,7 @@ export default function HomePage() {
           Contact ArtRX <span aria-hidden="true">↗</span>
         </Link>
       </section>
+      </Reveal>
     </div>
   );
 }

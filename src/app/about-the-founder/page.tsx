@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { Reveal } from "@/components/ui/Reveal";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 export default function AboutFounderPage() {
   return (
     <div className={styles.pageShell}>
-      <section className={styles.founder} aria-labelledby="about-title">
+      <Reveal><section className={styles.founder} aria-labelledby="about-title">
         <div className={styles.founderCopy}>
           <p className={styles.eyebrow}>People behind ArtRX</p>
           <h1 id="about-title">Art and science are part of the story.</h1>
@@ -43,8 +44,9 @@ export default function AboutFounderPage() {
           </figcaption>
         </figure>
       </section>
+      </Reveal>
 
-      <section className={styles.idea} aria-labelledby="idea-title">
+      <Reveal delay={60}><section className={styles.idea} aria-labelledby="idea-title">
         <div className={styles.ideaHeading}>
           <p className={styles.eyebrow}>ArtRX, as described today</p>
           <h2 id="idea-title">A prompt can open a conversation.</h2>
@@ -72,8 +74,9 @@ export default function AboutFounderPage() {
           </p>
         </div>
       </section>
+      </Reveal>
 
-      <section className={styles.profileReview} aria-labelledby="profile-title">
+      <Reveal delay={60}><section className={styles.profileReview} aria-labelledby="profile-title">
         <div className={styles.profileHeader}>
           <div>
             <p className={styles.eyebrow}>Current public profile · for review</p>
@@ -149,8 +152,9 @@ export default function AboutFounderPage() {
           No medical benefit is inferred from these details.
         </p>
       </section>
+      </Reveal>
 
-      <section className={styles.team} aria-labelledby="team-title">
+      <Reveal delay={60}><section className={styles.team} aria-labelledby="team-title">
         <figure className={styles.teamFigure}>
           <div className={styles.teamImage}>
             <Image
@@ -187,6 +191,7 @@ export default function AboutFounderPage() {
           </Link>
         </div>
       </section>
+      </Reveal>
 
       <aside className={styles.reviewNote} aria-label="Review note">
         <span className={styles.noteMark} aria-hidden="true">i</span>

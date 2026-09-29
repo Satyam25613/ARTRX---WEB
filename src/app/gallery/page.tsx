@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { GalleryExperience } from "@/components/gallery/GalleryExperience";
+import { Reveal } from "@/components/ui/Reveal";
 import { GALLERY_ITEMS } from "@/content/gallery-items";
 import styles from "./page.module.css";
 
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 export default function GalleryPage() {
   return (
     <div className={styles.pageShell}>
-      <header className={styles.intro}>
+      <Reveal><header className={styles.intro}>
         <div>
           <p className={styles.eyebrow}>ArtRX · Gallery</p>
           <h1>ArtRX Pads</h1>
@@ -30,10 +31,12 @@ export default function GalleryPage() {
           </p>
         </div>
       </header>
+      </Reveal>
 
-      <section className={styles.gallery} aria-label="ArtRX image gallery">
+      <Reveal delay={60}><section className={styles.gallery} aria-label="ArtRX image gallery">
         <GalleryExperience items={GALLERY_ITEMS} />
       </section>
+      </Reveal>
     </div>
   );
 }

@@ -1,15 +1,16 @@
 .reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  filter: blur(6px);
   transition:
-    opacity 0.75s var(--ease-out-expo),
-    transform 0.75s var(--ease-out-expo),
-    filter 0.75s var(--ease-out-expo);
+    opacity 0.65s var(--ease-out-expo),
+    transform 0.65s var(--ease-out-expo);
 }
 
-.visible {
+.reveal[data-reveal-state="pending"] {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.reveal[data-reveal-state="visible"],
+.reveal:focus-within {
   opacity: 1;
   transform: translateY(0);
-  filter: blur(0);
 }
