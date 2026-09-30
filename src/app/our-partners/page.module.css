@@ -55,29 +55,11 @@
   line-height: 1.75;
 }
 
-.status {
+.actions {
   display: flex;
-  max-width: 48ch;
-  align-items: flex-start;
-  gap: 0.7rem;
-  margin-top: 1.5rem;
-  padding: 0.95rem 1rem;
-  border: 1px solid var(--hairline-strong);
-  border-radius: var(--radius-card-sm);
-  background: rgba(253, 251, 247, 0.78);
-  color: var(--color-muted);
-  font-size: 0.82rem;
-  line-height: 1.6;
-}
-
-.statusMark {
-  width: 0.6rem;
-  height: 0.6rem;
-  flex: 0 0 0.6rem;
-  margin-top: 0.35rem;
-  border-radius: 50%;
-  background: var(--color-sage);
-  box-shadow: 0 0 0 4px var(--color-sage-light);
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem 1.25rem;
 }
 
 .action {
@@ -98,6 +80,23 @@
   transition:
     transform 220ms var(--ease-out-expo),
     background-color 220ms var(--ease-out-expo);
+}
+
+.secondaryAction {
+  display: inline-flex;
+  min-height: 3.1rem;
+  align-items: center;
+  color: var(--color-navy);
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 650;
+  text-decoration-color: rgba(24, 48, 88, 0.35);
+  text-underline-offset: 5px;
+}
+
+.secondaryAction:hover {
+  color: var(--color-sage-deep);
+  text-decoration-color: currentColor;
 }
 
 .action:hover {
@@ -287,62 +286,25 @@
 }
 
 .detailArrow {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border-radius: 50%;
   color: var(--color-sage-deep);
   font-size: 1rem;
+  text-decoration: none;
   transition: transform 240ms var(--ease-out-expo);
+}
+
+.detailArrow:focus-visible {
+  border-radius: 50%;
+  outline: 2px solid var(--color-sage-deep);
+  outline-offset: 3px;
 }
 
 .detailCard:hover .detailArrow {
   transform: translate(2px, -2px);
-}
-
-.reviewNote {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 1.5rem 3rem;
-  margin: 0 0 clamp(4rem, 8vw, 7rem);
-  padding: clamp(1.4rem, 3vw, 2rem);
-  border: 1px solid var(--hairline-strong);
-  border-radius: var(--radius-card);
-  background: var(--color-sage-light);
-}
-
-.reviewNote > div {
-  max-width: 76ch;
-}
-
-.noteLabel {
-  margin-bottom: 0.45rem;
-  color: var(--color-sage-deep);
-  font-family: var(--font-heading);
-  font-size: 0.68rem;
-  font-weight: 750;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.reviewNote > div > p:last-child {
-  color: var(--color-ink);
-  font-size: 0.84rem;
-  line-height: 1.7;
-}
-
-.sourceLink {
-  display: inline-flex;
-  flex: 0 0 auto;
-  align-items: center;
-  gap: 0.45rem;
-  color: var(--color-navy);
-  font-family: var(--font-heading);
-  font-size: 0.83rem;
-  font-weight: 700;
-  text-decoration-color: rgba(24, 48, 88, 0.34);
-  text-underline-offset: 4px;
-}
-
-.sourceLink:hover {
-  text-decoration-color: currentColor;
 }
 
 @media (max-width: 900px) {
@@ -383,10 +345,6 @@
     padding: 3.8rem 0;
   }
 
-  .reviewNote {
-    align-items: flex-start;
-    flex-direction: column;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -409,6 +367,10 @@
 
   .action,
   .detailArrow {
+    transition: none;
+  }
+
+  .secondaryAction {
     transition: none;
   }
 }

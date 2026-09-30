@@ -7,7 +7,7 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "ArtRX Pads",
   description:
-    "Explore the ArtRX illustrated prompt sheets, photographs of drawing in progress, and completed drawings.",
+    "Explore ArtRX’s illustrated prompt sheets, drawings in progress, and finished artwork.",
   alternates: { canonical: "/gallery" },
 };
 
@@ -21,13 +21,13 @@ export default function GalleryPage() {
         </div>
         <div className={styles.introAside}>
           <p>
-            The current gallery brings together illustrated prompt sheets,
-            photographs of drawing in progress, and completed drawings. Choose
-            a group below, or open an image for a closer look.
+            Browse illustrated prompt sheets, drawings in progress, and
+            finished artwork. Choose a group below, or open an image for a
+            closer look.
           </p>
           <p className={styles.privacyNote}>
-            This preview does not attach maker names, health details, or
-            facility names to any image.
+            Images are shown without maker names, health details, or facility
+            names.
           </p>
         </div>
       </header>

@@ -6,22 +6,22 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "Our Partners",
   description:
-    "A careful introduction to the people and organizations connected with ArtRX, once their roles are confirmed.",
+    "Learn about ArtRX and find a starting point for questions from care teams, volunteers, and the wider community.",
   alternates: { canonical: "/our-partners" },
 };
 
-const LISTING_DETAILS = [
+const CONTACT_PATHS = [
   {
-    title: "Who is involved",
-    body: "Name each person or organization only after their role and connection to ArtRX are confirmed.",
+    title: "Care teams",
+    body: "Ask a question about ArtRX’s illustrated prompts or art activities through the General inquiry form.",
   },
   {
-    title: "What the connection means",
-    body: "Explain the role in plain language so visitors can understand what the relationship includes.",
+    title: "Volunteers",
+    body: "If you would like to ask about volunteering, choose Volunteer interest on the Contact page.",
   },
   {
-    title: "What may be shared",
-    body: "Use names, logos, photographs, or quotes only when the people involved have agreed.",
+    title: "Everyone else",
+    body: "Share a question, an idea, or feedback with the General inquiry form.",
   },
 ];
 
@@ -32,20 +32,21 @@ export default function OurPartnersPage() {
         <section className={styles.hero} aria-labelledby="partners-title">
           <div className={styles.heroCopy}>
             <p className={styles.eyebrow}>ArtRX · Our Partners</p>
-            <h1 id="partners-title">Connections, shared with care.</h1>
+            <h1 id="partners-title">Connections begin with a conversation.</h1>
             <p className={styles.lead}>
-              This page is being prepared to introduce people and organizations
-              connected with ArtRX. Their roles and permission to be named need
-              to be confirmed first.
+              ArtRX shares illustrated drawing prompts and art activities with
+              children facing medical circumstances and older adults in nursing
+              homes. Care teams, volunteers, families, and curious visitors are
+              welcome to get in touch.
             </p>
-            <p className={styles.status}>
-              <span className={styles.statusMark} aria-hidden="true" />
-              No partner names or testimonials are shown in this preview while
-              those details are being checked.
-            </p>
-            <Link className={styles.action} href="/contact-us">
-              Contact ArtRX <span aria-hidden="true">↗</span>
-            </Link>
+            <div className={styles.actions}>
+              <Link className={styles.action} href="/contact-us">
+                Start a conversation <span aria-hidden="true">↗</span>
+              </Link>
+              <Link className={styles.secondaryAction} href="/gallery">
+                Explore the gallery
+              </Link>
+            </div>
           </div>
 
           <figure className={styles.artwork}>
@@ -89,10 +90,7 @@ export default function OurPartnersPage() {
                 d="M346 118c24-16 52-16 75-3-8 25-28 41-57 43-11-13-17-26-18-40Z"
               />
             </svg>
-            <figcaption>
-              Original decorative illustration · It does not show real ArtRX
-              partners or relationships.
-            </figcaption>
+            <figcaption>A shared idea can begin with a simple prompt.</figcaption>
           </figure>
         </section>
       </Reveal>
@@ -100,54 +98,35 @@ export default function OurPartnersPage() {
       <Reveal delay={60}>
         <section className={styles.listingSection} aria-labelledby="listing-title">
           <div className={styles.sectionIntro}>
-            <p className={styles.eyebrow}>A clear introduction</p>
-            <h2 id="listing-title">What a confirmed listing can explain.</h2>
+            <p className={styles.eyebrow}>A place to begin</p>
+            <h2 id="listing-title">What brings you here?</h2>
             <p>
-              A useful partner page helps visitors understand the connection,
-              without asking them to guess what a name or logo means.
+              Choose the message that fits. Each option leads to a simple way
+              to contact ArtRX.
             </p>
           </div>
 
           <div className={styles.detailList}>
-            {LISTING_DETAILS.map((detail, index) => (
-              <article className={styles.detailCard} key={detail.title}>
+            {CONTACT_PATHS.map((path, index) => (
+              <article className={styles.detailCard} key={path.title}>
                 <span className={styles.detailIndex} aria-hidden="true">
                   0{index + 1}
                 </span>
                 <div>
-                  <h3>{detail.title}</h3>
-                  <p>{detail.body}</p>
+                  <h3>{path.title}</h3>
+                  <p>{path.body}</p>
                 </div>
-                <span className={styles.detailArrow} aria-hidden="true">
-                  ↗
-                </span>
+                <Link
+                  className={styles.detailArrow}
+                  href="/contact-us"
+                  aria-label={`Contact ArtRX: ${path.title}`}
+                >
+                  <span aria-hidden="true">↗</span>
+                </Link>
               </article>
             ))}
           </div>
         </section>
-      </Reveal>
-
-      <Reveal delay={40}>
-        <aside className={styles.reviewNote} aria-label="Preview note">
-          <div>
-            <p className={styles.noteLabel}>Why this preview leaves names out</p>
-            <p>
-              ArtRX’s current public page includes a testimonial and individual
-              contact details. The historical discovery-call record says those
-              relationships were not confirmed as genuine partners. This
-              preview leaves them out until Thanvi confirms any current roles
-              and permission to share them.
-            </p>
-          </div>
-          <a
-            href="https://artrx.co/our-partners"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.sourceLink}
-          >
-            View the current page <span aria-hidden="true">↗</span>
-          </a>
-        </aside>
       </Reveal>
     </div>
   );

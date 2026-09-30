@@ -8,7 +8,7 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Contact ArtRX with a question about the project, its prompt sheets, or getting involved.",
+    "Contact ArtRX with a question about the project or to ask about volunteering.",
   alternates: { canonical: "/contact-us" },
 };
 
@@ -35,7 +35,7 @@ export default function ContactPage() {
               sizes="(min-width: 900px) 26vw, 88vw"
             />
           </div>
-          <p>AI-generated visual study · Not an ArtRX prompt sheet or session.</p>
+          <p>AI-generated illustration</p>
           <Link href="/gallery" className={styles.textLink}>
             First, explore the gallery <span aria-hidden="true">↗</span>
           </Link>
@@ -51,8 +51,8 @@ export default function ContactPage() {
           </div>
           <p>
             Pick the option that fits best. You’ll only see the fields for that
-            message. In this preview, a prepared email is offered for you to
-            review and send.
+            message. If direct sending is unavailable, use the prepared email
+            link to open your email app and send it there.
           </p>
         </div>
 
@@ -77,9 +77,9 @@ export default function ContactPage() {
             Email <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
           </p>
           <p className={styles.deliveryNote}>
-            This address appears on the current ArtRX website. In this review
-            preview, the form may open a prepared email for you to check and
-            send. The address and who reads it still need Thanvi’s confirmation.
+            If your email app does not open, you can write to this address
+            directly. Please leave patient names, diagnoses, and other private
+            health details out of your message.
           </p>
         </div>
       </section>

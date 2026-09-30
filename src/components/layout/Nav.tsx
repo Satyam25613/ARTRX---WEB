@@ -114,7 +114,6 @@ export function Nav() {
               />
             </span>
             <span className={styles.brandName}>{SITE_NAME}</span>
-            <span className={styles.previewBadge}>Preview</span>
           </Link>
 
           <ul className={styles.links}>

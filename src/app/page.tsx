@@ -7,7 +7,7 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "ArtRX | Illustrated drawing prompts",
   description:
-    "Explore the ArtRX drawing prompts, creative activities, and people behind the project.",
+    "Explore ArtRX’s illustrated drawing prompts, art activities, gallery, and story.",
   alternates: { canonical: "/" },
 };
 
@@ -15,7 +15,7 @@ const COLLECTION = [
   {
     label: "Drawing in progress",
     title: "Coloring a favorite-food prompt",
-    detail: "A real moment from the current ArtRX gallery.",
+    detail: "A prompt page being filled in with color.",
     src: "/images/gallery/patient-artwork/process-coloring-favorite-food.jpg",
     alt: "Hands coloring an ArtRX favorite-food prompt sheet, with colored pencils nearby.",
     kind: "process",
@@ -70,7 +70,7 @@ export default function HomePage() {
             </div>
           </div>
           <figcaption className={styles.heroCaption}>
-            AI-generated visual study · Not a real ArtRX session
+            AI-generated illustration
           </figcaption>
         </figure>
       </section>
@@ -83,25 +83,10 @@ export default function HomePage() {
         </div>
         <div className={styles.contextBody}>
           <p>
-            ArtRX&apos;s current public site describes a goal of offering
-            opportunities for creativity, self-expression, and emotional
-            comfort through illustrated drawing pads and art activities. It
-            describes children facing difficult medical circumstances and
-            older adults in nursing homes, with prompts about family, food,
-            animals, and memorable experiences.
-          </p>
-          <p className={styles.contextSource}>
-            This is the project&apos;s stated aim, not a measured result.
-            Thanvi should confirm the current audience, activity, locations,
-            and wording before public release.{" "}
-            <a
-              href="https://artrx.co/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.inlineLink}
-            >
-              See ArtRX&apos;s current description <span aria-hidden="true">↗</span>
-            </a>
+            ArtRX shares illustrated drawing prompts and art activities with
+            children facing medical circumstances and older adults in nursing
+            homes. Familiar subjects—family, favorite foods, animals, and
+            memories—offer an open place to begin.
           </p>
         </div>
         <figure className={styles.conceptArtwork}>
@@ -115,7 +100,7 @@ export default function HomePage() {
             />
           </div>
           <figcaption>
-            AI-generated visual study · Not an ArtRX prompt sheet or participant artwork
+            AI-generated illustration
           </figcaption>
         </figure>
       </section>
@@ -175,10 +160,9 @@ export default function HomePage() {
           <p className={styles.eyebrow}>About ArtRX</p>
           <h2 id="about-title">Art and science are part of the story.</h2>
           <p>
-            Thanvi Suvva is named as ArtRX&apos;s founder on its current About
-            page. The profile connects her interests in art and science with
-            creative expression, and introduces Jiley Diego as a student and
-            artist on the team.
+            ArtRX founder Thanvi Suvva has interests in art and science. The
+            project shares illustrated prompts and art activities with people
+            in care settings.
           </p>
           <Link href="/about-the-founder" className={styles.lightLink}>
             Meet Thanvi and Jiley <span aria-hidden="true">↗</span>

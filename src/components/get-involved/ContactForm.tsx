@@ -242,8 +242,8 @@ export function ContactForm({
       {status === "draft" ? (
         <div className={styles.draftBanner} role="status" aria-live="polite">
           <p>
-            Direct message sending is not available here. Open the
-            prepared email draft, review it, and press Send to finish.
+            Your message has not been sent yet. Open the prepared email and
+            press Send in your email app.
           </p>
           <a href={draftHref}>Open email draft <span aria-hidden="true">↗</span></a>
         </div>
@@ -255,8 +255,8 @@ export function ContactForm({
       ) : null}
       {status === "error" ? (
         <p className={styles.noticeBanner} role="alert">
-          The site could not send your message. You can open a prepared email
-          draft instead: <a href={draftHref}>review and send your message</a>.
+          We could not send your message from this page. You can still send it
+          from your email app: <a href={draftHref}>open the prepared email</a>.
         </p>
       ) : null}
 
