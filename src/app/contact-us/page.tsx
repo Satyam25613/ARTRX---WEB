@@ -29,13 +29,12 @@ export default function ContactPage() {
           <div className={styles.artworkFrame}>
             <Image
               src="/images/generated/artmaking-study-ochre-2026-09-29.webp"
-              alt="AI-generated still life of watercolor paper, a ceramic palette, a brush, and pencils in ochre and blue tones."
+              alt="Watercolor paper, a ceramic palette, a brush, and pencils in ochre and blue tones."
               fill
               loading="eager"
               sizes="(min-width: 900px) 26vw, 88vw"
             />
           </div>
-          <p>AI-generated illustration</p>
           <Link href="/gallery" className={styles.textLink}>
             First, explore the gallery <span aria-hidden="true">↗</span>
           </Link>

@@ -45,7 +45,7 @@ export default function HomePage() {
         <figure className={styles.heroFigure}>
           <Image
             src="/images/generated/artrx-home-artmaking-concept-2026-09-29.webp"
-            alt="AI-generated visual of a hand painting on paper beside watercolor pots."
+            alt="A hand painting on paper beside watercolor pots."
             fill
             loading="eager"
             sizes="(min-width: 1480px) 1480px, 100vw"
@@ -69,9 +69,6 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-          <figcaption className={styles.heroCaption}>
-            AI-generated illustration
-          </figcaption>
         </figure>
       </section>
 
@@ -93,15 +90,12 @@ export default function HomePage() {
           <div className={styles.conceptImageFrame}>
             <Image
               src="/images/generated/artmaking-study-teal-2026-09-29.webp"
-              alt="AI-generated still life of an open sketchbook, watercolor, pencils, and a brush in soft teal and coral tones."
+              alt="An open sketchbook, watercolor, pencils, and a brush in soft teal and coral tones."
               fill
               loading="lazy"
               sizes="(min-width: 900px) 24vw, (min-width: 680px) 58vw, 100vw"
             />
           </div>
-          <figcaption>
-            AI-generated illustration
-          </figcaption>
         </figure>
       </section>
       </Reveal>
