@@ -1,43 +1,45 @@
 import type { GalleryItem } from "@/lib/types";
 
 const TEMPLATES = "/images/gallery/guided-templates";
+const PROMPT_CONCEPTS = "/images/gallery/prompt-concepts";
 const ARTWORK = "/images/gallery/patient-artwork";
 const ORIENTED_ARTWORK = `${ARTWORK}/oriented`;
 
-// Images and prompt names were checked against the live ArtRX gallery on
-// 29 September 2026. Captions describe only what is visible in each image.
+// Existing prompt sheets are preserved in public/images/gallery/guided-templates.
+// The active page uses topic-matched illustrated versions for prompts that had
+// unrelated animal decorations; the favorite-animal sheet keeps its animal art.
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "template-draw-you-and-your-friends",
     category: "prompt",
-    src: `${TEMPLATES}/template-draw-you-and-your-friends.jpg`,
+    src: `${PROMPT_CONCEPTS}/friends.jpg`,
     title: "Draw You and Your Friends",
-    alt: "Blank illustrated prompt sheet titled Draw You and Your Friends, with sea-animal drawings around the page.",
-    caption: "An open drawing area framed by ocean illustrations.",
+    alt: "Illustrated drawing prompt sheet titled Draw You and Your Friends, with a small group of friends and conversation bubbles around a blank center.",
+    caption: "A few friendly figures frame an open space to draw.",
   },
   {
     id: "template-out-of-the-hospital",
     category: "prompt",
-    src: `${TEMPLATES}/template-out-of-the-hospital.jpg`,
+    src: `${PROMPT_CONCEPTS}/after-hospital.jpg`,
     title: "What Will You Do Once You're Out of the Hospital?",
-    alt: "Blank illustrated prompt sheet asking what you will do once you are out of the hospital, with animal illustrations around the page.",
-    caption: "A question about plans after leaving hospital.",
+    alt: "Illustrated prompt sheet asking what you will do once you are out of the hospital, with a kite, book, paintbrush, and flower around a blank center.",
+    caption: "Everyday things frame a question about future plans.",
   },
   {
     id: "template-draw-your-family",
     category: "prompt",
-    src: `${TEMPLATES}/template-draw-your-family.jpg`,
+    src: `${PROMPT_CONCEPTS}/draw-family.jpg`,
     title: "Draw Your Family",
-    alt: "Blank illustrated prompt sheet titled Draw Your Family, with sea-animal drawings around the page.",
-    caption: "A family prompt with illustrated ocean borders.",
+    alt: "Illustrated prompt sheet titled Draw Your Family, with a house, potted plant, and family portrait around a blank center.",
+    caption: "Home and family illustrations frame the drawing space.",
   },
   {
     id: "template-summer-plans",
     category: "prompt",
-    src: `${TEMPLATES}/template-summer-plans.jpg`,
+    src: `${PROMPT_CONCEPTS}/summer-plans.jpg`,
     title: "What Do You Want to Do Over the Summer?",
-    alt: "Blank illustrated prompt sheet asking what you want to do over the summer, with animal drawings around the page.",
-    caption: "A question about summer plans.",
+    alt: "Illustrated prompt sheet asking what you want to do over the summer, with a sun hat, book, picnic blanket, and beach umbrella around a blank center.",
+    caption: "A few summer objects frame the open page.",
   },
   {
     id: "template-favorite-animal",
@@ -50,34 +52,34 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "template-favorite-thing-to-do",
     category: "prompt",
-    src: `${TEMPLATES}/template-favorite-thing-to-do.jpg`,
+    src: `${PROMPT_CONCEPTS}/favorite-activity.jpg`,
     title: "What Is Your Favorite Thing to Do?",
-    alt: "Blank illustrated prompt sheet asking what your favorite thing to do is, with seal and penguin drawings.",
-    caption: "An open question about a favorite activity.",
+    alt: "Illustrated prompt sheet asking about a favorite activity, with a paintbrush, soccer ball, open book, and music note around a blank center.",
+    caption: "Art, sport, reading, and music frame the question.",
   },
   {
     id: "template-memorable-experience",
     category: "prompt",
-    src: `${TEMPLATES}/template-memorable-experience.jpg`,
+    src: `${PROMPT_CONCEPTS}/memorable-experience.jpg`,
     title: "What Is a Memorable Experience for You?",
-    alt: "Blank illustrated prompt sheet asking about a memorable experience, with toucan and macaw drawings.",
-    caption: "A prompt about a memorable experience.",
+    alt: "Illustrated prompt sheet about a memorable experience, with a camera, blank keepsake ticket, and mountain postcard around a blank center.",
+    caption: "A camera and keepsakes frame a memory prompt.",
   },
   {
     id: "template-grow-up",
     category: "prompt",
-    src: `${TEMPLATES}/template-grow-up.jpg`,
+    src: `${PROMPT_CONCEPTS}/future-ideas.jpg`,
     title: "What Do You Want to Be When You Grow Up?",
-    alt: "Blank illustrated prompt sheet asking what you want to be when you grow up, with animal drawings around the page.",
-    caption: "A question about future hopes and ideas.",
+    alt: "Illustrated prompt sheet asking what you want to be when you grow up, with a telescope, notebook, potted plant, and hammer around a blank center.",
+    caption: "Tools for looking, making, and growing frame the question.",
   },
   {
     id: "template-favorite-food",
     category: "prompt",
-    src: `${TEMPLATES}/template-favorite-food.jpg`,
+    src: `${PROMPT_CONCEPTS}/favorite-food.jpg`,
     title: "What's Your Favorite Food?",
-    alt: "Blank illustrated prompt sheet asking what your favorite food is, with a fox and scorpion drawing around the page.",
-    caption: "A familiar question with room to draw an answer.",
+    alt: "Illustrated prompt sheet asking about a favorite food, with a bowl of fruit, bread, and pizza around a blank center.",
+    caption: "Food illustrations frame an open space for a drawing.",
   },
   {
     id: "process-coloring-favorite-food",

@@ -33,7 +33,7 @@ export default function GalleryPage() {
       </header>
       </Reveal>
 
-      <Reveal delay={60}><section className={styles.gallery} aria-label="ArtRX image gallery">
+      <Reveal delay={60}><section id="prompt-sheets" className={styles.gallery} aria-label="ArtRX image gallery">
         <GalleryExperience items={GALLERY_ITEMS} />
       </section>
       </Reveal>

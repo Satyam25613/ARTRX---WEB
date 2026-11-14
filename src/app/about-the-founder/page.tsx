@@ -20,8 +20,9 @@ export default function AboutFounderPage() {
             <p className={styles.eyebrow}>People behind ArtRX</p>
             <h1 id="about-title">Meet Thanvi Suvva.</h1>
             <p className={styles.lead}>
-              ArtRX was founded by Thanvi Suvva, whose interests include art
-              and science.
+              Thanvi Suvva is a student with interests in art and science. She
+              created ArtRX to share illustrated prompts and art activities
+              with children in hospitals and older adults in nursing homes.
             </p>
             <Link href="/gallery" className={styles.action}>
               Explore the drawing prompts <span aria-hidden="true">↗</span>
@@ -80,14 +81,62 @@ export default function AboutFounderPage() {
             <h2 id="team-title">Jiley Diego</h2>
             <p className={styles.teamRole}>Student · Artist</p>
             <p className={styles.body}>
-              Jiley is interested in the ways art and science can meet. Through
-              her work with ArtRX, she hopes to share that interest through
-              creative community work.
+              Jiley Diego is a student and artist whose interests span art,
+              medicine, and scientific innovation. She is curious about fields
+              including gene editing, regenerative medicine, and biotechnology,
+              and how new discoveries might shape the future of healthcare.
+              Jiley sees creativity as an important part of how people imagine
+              and communicate new ideas. Through community outreach, she hopes
+              to bring her interests in science and art together.
             </p>
-            <Link href="/contact-us" className={styles.textLink}>
-              Contact ArtRX <span aria-hidden="true">↗</span>
-            </Link>
           </div>
+        </section>
+      </Reveal>
+
+      <Reveal delay={80}>
+        <section className={styles.team} aria-labelledby="zander-title">
+          <figure className={styles.teamFigure}>
+            <div className={styles.teamImage}>
+              <Image
+                src="/images/team/zander.jpg"
+                alt="Portrait of ArtRX team member Zander."
+                fill
+                sizes="(min-width: 900px) 31vw, 82vw"
+              />
+            </div>
+            <figcaption>Zander · Student and artist</figcaption>
+          </figure>
+
+          <div className={styles.teamCopy}>
+            <p className={styles.eyebrow}>ArtRX team</p>
+            <h2 id="zander-title">Zander</h2>
+            <p className={styles.teamRole}>Student · Artist</p>
+            <p className={styles.body}>
+              Zander is a student and artist with wide-ranging interests,
+              especially in animal behavior and the challenges animals face
+              around the world. He sees art as something people can share and
+              find joy in, including during difficult times in hospital.
+              Looking ahead, Zander hopes to explore connections between art
+              and animals and how creative expression might bring joy across
+              species. He believes care should extend to animals as well as
+              people.
+            </p>
+          </div>
+        </section>
+      </Reveal>
+
+      <Reveal delay={60}>
+        <section className={styles.contactPanel} aria-labelledby="contact-panel-title">
+          <div className={styles.contactPanelCopy}>
+            <p className={styles.eyebrow}>Contact ArtRX</p>
+            <h2 id="contact-panel-title">Have a question or want to get involved?</h2>
+            <p className={styles.contactPanelText}>
+              Choose general inquiry or volunteer interest on the contact page.
+            </p>
+          </div>
+          <Link href="/contact-us" className={styles.contactPanelAction}>
+            Go to contact page <span aria-hidden="true">↗</span>
+          </Link>
         </section>
       </Reveal>
     </div>

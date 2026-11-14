@@ -24,8 +24,8 @@ const COLLECTION = [
     label: "Prompt sheet",
     title: "What's your favorite food?",
     detail: "An illustrated prompt with room to draw.",
-    src: "/images/gallery/guided-templates/template-favorite-food.jpg",
-    alt: "Blank illustrated ArtRX prompt sheet asking what your favorite food is.",
+    src: "/images/gallery/prompt-concepts/favorite-food.jpg",
+    alt: "Illustrated ArtRX prompt sheet asking about a favorite food, with a bowl of fruit, bread, and pizza around a blank center.",
     kind: "prompt",
   },
   {
@@ -164,13 +164,13 @@ export default function HomePage() {
         </div>
         <figure className={styles.aboutArtwork}>
           <Image
-            src="/images/gallery/guided-templates/template-draw-your-family.jpg"
-            alt="ArtRX prompt sheet titled Draw Your Family, framed by illustrated sea animals."
+            src="/images/gallery/prompt-concepts/draw-family.jpg"
+            alt="ArtRX prompt sheet titled Draw Your Family, with a house, potted plant, and family portrait around a blank center."
             fill
             loading="lazy"
             sizes="(min-width: 900px) 38vw, 100vw"
           />
-          <figcaption>Draw Your Family · ArtRX prompt sheet</figcaption>
+          <figcaption>Draw Your Family · illustrated prompt</figcaption>
         </figure>
       </section>
       </Reveal>

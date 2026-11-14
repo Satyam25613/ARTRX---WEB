@@ -25,6 +25,11 @@ const CONTACT_PATHS = [
   },
 ];
 
+const PARTNER_ORGANIZATION = {
+  name: "Arbor’s assisted-living communities at West",
+  description: "For questions about this connection, contact ArtRX.",
+};
+
 export default function OurPartnersPage() {
   return (
     <div className={styles.pageShell}>
@@ -92,6 +97,35 @@ export default function OurPartnersPage() {
             </svg>
             <figcaption>A shared idea can begin with a simple prompt.</figcaption>
           </figure>
+        </section>
+      </Reveal>
+
+      <Reveal delay={40}>
+        <section className={styles.listingSection} aria-labelledby="partner-organization-title">
+          <div className={styles.sectionIntro}>
+            <p className={styles.eyebrow}>Partner organization</p>
+            <h2 id="partner-organization-title">A community connection.</h2>
+            <p>
+              For questions about this connection, contact ArtRX.
+            </p>
+          </div>
+
+          <div className={styles.detailList}>
+            <article className={styles.detailCard}>
+              <span className={styles.detailIndex} aria-hidden="true">01</span>
+              <div>
+                <h3>{PARTNER_ORGANIZATION.name}</h3>
+                <p>{PARTNER_ORGANIZATION.description}</p>
+              </div>
+              <Link
+                className={styles.detailArrow}
+                href="/contact-us"
+                aria-label={`Contact ArtRX about ${PARTNER_ORGANIZATION.name}`}
+              >
+                <span aria-hidden="true">↗</span>
+              </Link>
+            </article>
+          </div>
         </section>
       </Reveal>
 

@@ -45,13 +45,14 @@ export default function ContactPage() {
       <Reveal delay={60}><section className={styles.formsSection} aria-labelledby="forms-title">
         <div className={styles.formsHeader}>
           <div>
-            <p className={styles.eyebrow}>Choose a starting point</p>
-            <h2 id="forms-title">What would you like to ask?</h2>
+            <p className={styles.eyebrow}>Two ways to reach ArtRX</p>
+            <h2 id="forms-title">Choose the message that fits.</h2>
           </div>
           <p>
-            Pick the option that fits best. You’ll only see the fields for that
-            message. If direct sending is unavailable, use the prepared email
-            link to open your email app and send it there.
+            Use the general inquiry form for questions about ArtRX. Use the
+            volunteer form if you are interested in getting involved. If direct
+            sending is unavailable, you can open a prepared email to review and
+            send.
           </p>
         </div>
 
