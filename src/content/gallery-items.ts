@@ -82,6 +82,14 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     caption: "Food illustrations frame an open space for a drawing.",
   },
   {
+    id: "process-sketching-prompt-oct-2026",
+    category: "in-progress",
+    src: `${ARTWORK}/process-sketching-prompt-oct-2026.jpg`,
+    title: "Drawing on a Prompt Sheet",
+    alt: "A hand draws on a favorite-activity prompt sheet, with colored pencils nearby.",
+    caption: "A drawing taking shape with colored pencils.",
+  },
+  {
     id: "process-coloring-favorite-food",
     category: "in-progress",
     src: `${ARTWORK}/process-coloring-favorite-food.jpg`,

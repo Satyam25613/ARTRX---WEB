@@ -5,6 +5,8 @@ import { SITE_TAGLINE } from "@/content/site";
 import styles from "./Footer.module.css";
 
 export function Footer() {
+  const exploreLinks = NAV_LINKS.filter((link) => link.href !== "/contact-us");
+
   return (
     <footer className={styles.footer}>
       <div className={styles.inner}>
@@ -19,12 +21,20 @@ export function Footer() {
                 sizes="96px"
               />
             </div>
-            <p className={styles.tagline}>{SITE_TAGLINE}</p>
+            <div className={styles.brandCopy}>
+              <p className={styles.tagline}>{SITE_TAGLINE}</p>
+              <p className={styles.description}>
+                ArtRX shares illustrated prompts and art activities with
+                children facing difficult medical circumstances and older
+                adults.
+              </p>
+            </div>
           </div>
 
-          <nav aria-label="Footer">
+          <nav className={styles.explore} aria-label="Explore ArtRX">
+            <h2 className={styles.columnTitle}>Explore</h2>
             <ul className={styles.links}>
-              {NAV_LINKS.map((link) => (
+              {exploreLinks.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className={styles.link}>
                     {link.label}
@@ -33,9 +43,22 @@ export function Footer() {
               ))}
             </ul>
           </nav>
+
+          <div className={styles.contact}>
+            <h2 className={styles.columnTitle}>Questions or want to help?</h2>
+            <p className={styles.contactCopy}>
+              Ask about ArtRX or choose the volunteer form on our contact page.
+            </p>
+            <Link href="/contact-us" className={styles.contactLink}>
+              Visit the contact page <span aria-hidden="true">↗</span>
+            </Link>
+          </div>
         </div>
 
-        <p className={styles.copy}>ArtRX · Drawing prompts and art activities</p>
+        <div className={styles.bottom}>
+          <p className={styles.copy}>© {new Date().getFullYear()} ArtRX</p>
+          <p className={styles.bottomNote}>{SITE_TAGLINE}</p>
+        </div>
       </div>
     </footer>
   );

@@ -63,31 +63,11 @@
   text-decoration-color: currentColor;
 }
 
-.founderFigure,
 .teamFigure {
   min-width: 0;
   margin: 0;
 }
 
-.founderFigure {
-  width: min(100%, 475px);
-  justify-self: end;
-}
-
-.founderImage {
-  position: relative;
-  aspect-ratio: 1.18 / 1;
-  overflow: hidden;
-  border-radius: var(--radius-card);
-  background: #dce5e8;
-}
-
-.founderImage img {
-  object-fit: cover;
-  object-position: center 34%;
-}
-
-.founderFigure figcaption,
 .teamFigure figcaption {
   padding: 0.75rem 0.1rem 0;
   color: var(--color-muted);
@@ -246,15 +226,6 @@
   .founder h1 {
     max-width: 12ch;
     font-size: clamp(3rem, 12vw, 4.8rem);
-  }
-
-  .founderFigure {
-    width: min(100%, 440px);
-    justify-self: start;
-  }
-
-  .founderImage {
-    aspect-ratio: 0.96 / 1;
   }
 
   .idea {

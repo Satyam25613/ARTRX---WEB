@@ -29,18 +29,6 @@ export default function AboutFounderPage() {
             </Link>
           </div>
 
-          <figure className={styles.founderFigure}>
-            <div className={styles.founderImage}>
-              <Image
-                src="/images/gallery/patient-artwork/process-sketching-pizza.jpg"
-                alt="A drawing taking shape on an illustrated ArtRX prompt sheet, with art materials nearby."
-                fill
-                priority
-                sizes="(min-width: 900px) 39vw, 100vw"
-              />
-            </div>
-            <figcaption>A drawing taking shape on an ArtRX prompt.</figcaption>
-          </figure>
         </section>
       </Reveal>
 

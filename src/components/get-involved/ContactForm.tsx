@@ -7,7 +7,8 @@ import styles from "./ContactForm.module.css";
 
 type FormStatus = "idle" | "submitting" | "sent" | "test" | "draft" | "invalid" | "error";
 type FieldName = "name" | "email" | "message";
-type ContactPurpose = "general" | "volunteer";
+export type ContactPurpose = "general" | "volunteer";
+export type ContactFormValues = { name: string; email: string; message: string };
 
 const formCopy = {
   general: {
@@ -54,9 +55,15 @@ function makeDraftHref(contactEmail: string, values: {
 export function ContactForm({
   purpose,
   contactEmail,
+  values,
+  onValuesChange,
+  onBusyChange,
 }: {
   purpose: ContactPurpose;
   contactEmail: string;
+  values: ContactFormValues;
+  onValuesChange: (values: ContactFormValues) => void;
+  onBusyChange: (isBusy: boolean) => void;
 }) {
   const [status, setStatus] = useState<FormStatus>("idle");
   const [draftHref, setDraftHref] = useState("");
@@ -99,6 +106,7 @@ export function ContactForm({
     if (parsed.data.company?.trim()) return;
 
     setStatus("submitting");
+    onBusyChange(true);
 
     try {
       const response = await fetch("/api/contact", {
@@ -112,7 +120,7 @@ export function ContactForm({
 
       if (response.ok && result?.ok) {
         setStatus(result.delivery === "test" ? "test" : "sent");
-        form.reset();
+        onValuesChange({ name: "", email: "", message: "" });
         return;
       }
 
@@ -126,6 +134,8 @@ export function ContactForm({
     } catch {
       setDraftHref(makeDraftHref(contactEmail, parsed.data));
       setStatus("error");
+    } finally {
+      onBusyChange(false);
     }
   }
 
@@ -175,6 +185,8 @@ export function ContactForm({
           ref={nameRef}
           name="name"
           type="text"
+          value={values.name}
+          onChange={(event) => onValuesChange({ ...values, name: event.currentTarget.value })}
           autoComplete="name"
           required
           maxLength={100}
@@ -196,6 +208,8 @@ export function ContactForm({
           ref={emailRef}
           name="email"
           type="email"
+          value={values.email}
+          onChange={(event) => onValuesChange({ ...values, email: event.currentTarget.value })}
           autoComplete="email"
           spellCheck={false}
           required
@@ -218,6 +232,8 @@ export function ContactForm({
           ref={messageRef}
           name="message"
           rows={5}
+          value={values.message}
+          onChange={(event) => onValuesChange({ ...values, message: event.currentTarget.value })}
           required
           maxLength={CONTACT_MESSAGE_LIMIT}
           className={styles.control}

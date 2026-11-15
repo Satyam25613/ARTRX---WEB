@@ -127,69 +127,27 @@
 
 .formsLayout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(210px, 250px);
-  grid-template-areas: "experience privacy";
-  align-items: start;
-  gap: clamp(1rem, 2.4vw, 1.6rem);
-}
-
-.contactExperience {
-  grid-area: experience;
-}
-
-.privacyAside {
-  grid-area: privacy;
-  display: flex;
-  align-items: flex-start;
-  gap: 0.85rem;
-  padding: 1.1rem;
-  border: 1px solid rgba(40, 90, 70, 0.15);
-  border-radius: var(--radius-card);
-  background: var(--color-sage-light);
-}
-
-.privacyMark {
-  display: grid;
-  width: 1.7rem;
-  height: 1.7rem;
-  flex: 0 0 1.7rem;
-  place-items: center;
-  border: 1px solid rgba(40, 90, 70, 0.3);
-  border-radius: 50%;
-  color: var(--color-sage-deep);
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  font-style: italic;
-}
-
-.privacyAside h3 {
-  color: var(--color-navy);
-  font-family: var(--font-heading);
-  font-size: 0.87rem;
-  font-weight: 700;
-  line-height: 1.4;
-}
-
-.privacyAside p {
-  margin-top: 0.4rem;
-  color: var(--color-sage-deep);
-  font-size: 0.8rem;
-  line-height: 1.58;
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .contactNotes {
   display: grid;
-  grid-template-columns: minmax(200px, 0.6fr) minmax(0, 1.4fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
   gap: 1rem 2rem;
-  align-items: start;
-  margin-top: 2rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--hairline-strong);
+  align-items: center;
+  margin-top: 1.25rem;
+  padding: 1.1rem clamp(1.1rem, 2.5vw, 1.5rem);
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-card);
+  background: var(--color-cream);
 }
 
 .addressLine {
+  display: grid;
+  gap: 0.3rem;
   color: var(--color-muted);
-  font-size: 0.84rem;
+  font-size: 0.78rem;
+  line-height: 1.4;
 }
 
 .addressLine a {
@@ -206,23 +164,11 @@
 }
 
 .deliveryNote {
-  max-width: 70ch;
+  max-width: 48ch;
+  justify-self: end;
   color: var(--color-muted);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   line-height: 1.65;
-}
-
-@media (max-width: 900px) {
-  .formsLayout {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "privacy"
-      "experience";
-  }
-
-  .privacyAside {
-    max-width: none;
-  }
 }
 
 @media (max-width: 760px) {
@@ -261,6 +207,10 @@
   .contactNotes {
     grid-template-columns: 1fr;
     gap: 0.75rem;
+  }
+
+  .deliveryNote {
+    justify-self: start;
   }
 }
 

@@ -11,6 +11,21 @@ import styles from "./Nav.module.css";
 
 const MENU_LINKS = NAV_LINKS.filter((link) => link.href !== "/contact-us");
 
+function routeFromHref(href: string) {
+  const route = href.split(/[?#]/, 1)[0] || "/";
+  return route.length > 1 ? route.replace(/\/+$/, "") : route;
+}
+
+function isCurrentRoute(pathname: string, href: string) {
+  const currentRoute = routeFromHref(pathname);
+  const targetRoute = routeFromHref(href);
+
+  return (
+    currentRoute === targetRoute ||
+    (targetRoute !== "/" && currentRoute.startsWith(`${targetRoute}/`))
+  );
+}
+
 export function Nav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -19,12 +34,30 @@ export function Nav() {
   const mobileNavRef = useRef<HTMLElement>(null);
   const dockRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLSpanElement>(null);
+  const previousPathnameRef = useRef(pathname);
+
+  function closeMobileMenu() {
+    setOpen(false);
+    menuToggleRef.current?.focus();
+  }
+
+  // Keep the menu in sync with route changes, including browser Back/Forward.
+  useEffect(() => {
+    if (previousPathnameRef.current !== pathname) {
+      previousPathnameRef.current = pathname;
+      if (open) {
+        setOpen(false);
+        menuToggleRef.current?.focus();
+      }
+    }
+  }, [open, pathname]);
 
   // While the overlay is open: lock background scroll, allow Escape to close,
   // and move focus into the menu for keyboard and screen-reader users.
   useEffect(() => {
     if (!open) return undefined;
 
+    const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     firstMobileLinkRef.current?.focus();
 
@@ -54,7 +87,7 @@ export function Nav() {
 
     window.addEventListener("keydown", onKeyDown);
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", onKeyDown);
     };
   }, [open]);
@@ -102,7 +135,11 @@ export function Nav() {
     <>
       <div ref={dockRef} className={styles.dock}>
         <nav className={styles.pill} aria-label="Primary">
-          <Link href="/" className={styles.brand}>
+          <Link
+            href="/"
+            className={styles.brand}
+            aria-current={isCurrentRoute(pathname, "/") ? "page" : undefined}
+          >
             <span className={styles.brandMark} aria-hidden="true">
               <Image
                 className={styles.brandMarkImage}
@@ -118,7 +155,7 @@ export function Nav() {
 
           <ul className={styles.links}>
             {MENU_LINKS.map((link) => {
-              const isActive = pathname === link.href;
+              const isActive = isCurrentRoute(pathname, link.href);
               return (
                 <li key={link.href}>
                   <Link
@@ -137,7 +174,7 @@ export function Nav() {
             <Button
               href="/contact-us"
               variant="primary"
-              aria-current={pathname === "/contact-us" ? "page" : undefined}
+              aria-current={isCurrentRoute(pathname, "/contact-us") ? "page" : undefined}
             >
               Contact
             </Button>
@@ -171,7 +208,7 @@ export function Nav() {
       >
         <ul className={styles.mobileLinks}>
           {MENU_LINKS.map((link, index) => {
-            const isActive = pathname === link.href;
+            const isActive = isCurrentRoute(pathname, link.href);
             return (
               <li
                 key={link.href}
@@ -183,7 +220,7 @@ export function Nav() {
                   href={link.href}
                   aria-current={isActive ? "page" : undefined}
                   className={isActive ? styles.mobileLinkActive : styles.mobileLink}
-                  onClick={() => setOpen(false)}
+                  onClick={closeMobileMenu}
                 >
                   {link.label}
                 </Link>
@@ -199,8 +236,8 @@ export function Nav() {
             href="/contact-us"
             variant="primary"
             fullWidth
-            aria-current={pathname === "/contact-us" ? "page" : undefined}
-            onClick={() => setOpen(false)}
+            aria-current={isCurrentRoute(pathname, "/contact-us") ? "page" : undefined}
+            onClick={closeMobileMenu}
           >
             Contact
           </Button>

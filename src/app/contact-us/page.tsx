@@ -45,28 +45,17 @@ export default function ContactPage() {
       <Reveal delay={60}><section className={styles.formsSection} aria-labelledby="forms-title">
         <div className={styles.formsHeader}>
           <div>
-            <p className={styles.eyebrow}>Two ways to reach ArtRX</p>
-            <h2 id="forms-title">Choose the message that fits.</h2>
+            <p className={styles.eyebrow}>A single place to reach ArtRX</p>
+            <h2 id="forms-title">What would you like to talk about?</h2>
           </div>
           <p>
-            Use the general inquiry form for questions about ArtRX. Use the
-            volunteer form if you are interested in getting involved. If direct
-            sending is unavailable, you can open a prepared email to review and
-            send.
+            Choose a message type and the form will adapt. You can switch your
+            choice at any time. If direct sending is unavailable, you can open
+            a prepared email to review and send.
           </p>
         </div>
 
         <div className={styles.formsLayout}>
-          <aside className={styles.privacyAside} aria-label="A note about privacy">
-            <span className={styles.privacyMark} aria-hidden="true">i</span>
-            <div>
-              <h3>Keep personal health details out</h3>
-              <p>
-                Please don’t include patient names, diagnoses, treatment details,
-                or other private health information in a message.
-              </p>
-            </div>
-          </aside>
           <div className={styles.contactExperience}>
             <ContactExperience contactEmail={CONTACT_EMAIL} />
           </div>
@@ -74,12 +63,11 @@ export default function ContactPage() {
 
         <div className={styles.contactNotes}>
           <p className={styles.addressLine}>
-            Email <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+            <span>Prefer email?</span>
+            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
           </p>
           <p className={styles.deliveryNote}>
-            If your email app does not open, you can write to this address
-            directly. Please leave patient names, diagnoses, and other private
-            health details out of your message.
+            Your email app will open a message you can review before sending.
           </p>
         </div>
       </section>

@@ -4,11 +4,6 @@
   align-items: start;
   gap: 1.25rem 1rem;
   min-width: 0;
-  padding: clamp(1.2rem, 3vw, 2rem);
-  border: 1px solid var(--hairline-strong);
-  border-radius: var(--radius-shell);
-  background: var(--color-cream);
-  box-shadow: var(--shadow-ambient);
 }
 
 .formHeading {
@@ -238,7 +233,6 @@ textarea.control {
   .form {
     grid-template-columns: 1fr;
     gap: 1rem;
-    padding: 1.1rem;
   }
 
   .inlineField,

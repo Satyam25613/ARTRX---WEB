@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import type { GalleryCategory, GalleryItem } from "@/lib/types";
 import styles from "./GalleryExperience.module.css";
@@ -126,6 +127,7 @@ export function GalleryExperience({ items }: { items: GalleryItem[] }) {
             type="button"
             className={styles.item}
             data-category={item.category}
+            style={{ animationDelay: `${Math.min(index, 8) * 42}ms` }}
             onClick={() => openLightbox(item)}
             aria-label={`Open image: ${item.title}`}
           >
@@ -149,7 +151,7 @@ export function GalleryExperience({ items }: { items: GalleryItem[] }) {
         ))}
       </div>
 
-      {selectedItem ? (
+      {selectedItem && typeof document !== "undefined" ? createPortal(
         <div className={styles.overlay} onClick={(event) => {
           if (event.target === event.currentTarget) closeLightbox();
         }}>
@@ -201,7 +203,8 @@ export function GalleryExperience({ items }: { items: GalleryItem[] }) {
               </div>
             ) : null}
           </div>
-        </div>
+        </div>,
+        document.body,
       ) : null}
     </>
   );
