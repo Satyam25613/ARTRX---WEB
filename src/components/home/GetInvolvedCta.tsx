@@ -9,12 +9,12 @@ const AUDIENCES = [
   {
     icon: Building2,
     title: "Hospitals & Senior Facilities",
-    description: "Request prompt pads or ask about bringing ArtRX to your ward or center.",
+    description: "Request illustrated prompts or ask about bringing an ArtRX activity to your ward or center.",
   },
   {
     icon: GraduationCap,
     title: "Students & Volunteers",
-    description: "Help design prompts, assemble pads, or join a future outreach visit.",
+    description: "Help create prompts, prepare art materials, or join a future outreach visit.",
   },
   {
     icon: Users,

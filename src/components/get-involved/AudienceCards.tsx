@@ -7,13 +7,13 @@ const AUDIENCES = [
     icon: Building2,
     title: "Hospitals & Senior Facilities",
     description:
-      "Child Life specialists and Activity Directors can request guided prompt pads or ask about a visit — choose “Hospital / Senior Facility Request” below.",
+      "Child Life specialists and Activity Directors can request illustrated prompts or ask about a visit. Choose “Hospital / Senior Facility Request” below.",
   },
   {
     icon: GraduationCap,
     title: "Students & Volunteers",
     description:
-      "Want to help design prompts, assemble pads, or join an outreach visit? Choose “Volunteer Interest” below.",
+      "Want to help create prompts, prepare art materials, or join an outreach visit? Choose “Volunteer Interest” below.",
   },
   {
     icon: Users,

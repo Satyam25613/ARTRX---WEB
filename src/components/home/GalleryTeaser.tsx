@@ -25,7 +25,7 @@ export function GalleryTeaser() {
         <SectionHeading
           eyebrow="Stories & Gallery"
           title="Real Prompts, Real Drawings"
-          description="A look at the guided prompt pads and the drawings they inspire — created by the children and seniors ArtRX visits."
+          description="Explore the illustrated prompts, the moments of making, and drawings shared with ArtRX."
         />
         <div className={styles.grid}>
           {items.map((item, index) => (

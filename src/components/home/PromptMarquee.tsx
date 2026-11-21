@@ -2,7 +2,7 @@ import { Sparkle } from "lucide-react";
 import { GALLERY_ITEMS } from "@/content/gallery-items";
 import styles from "./PromptMarquee.module.css";
 
-// The prompts are the product — a slow editorial ticker of the real pad titles.
+// A slow editorial ticker of the prompt titles in the gallery.
 const PROMPTS = GALLERY_ITEMS.filter((item) => item.category === "prompt").map(
   (item) => item.title
 );
@@ -22,7 +22,7 @@ function PromptRow({ hidden }: { hidden?: boolean }) {
 
 export function PromptMarquee() {
   return (
-    <section className={styles.band} aria-label="Drawing prompts from the ArtRX illustration pads">
+    <section className={styles.band} aria-label="Drawing prompts from ArtRX">
       {/* Screen readers get the full list; the moving track is decorative. */}
       <ul className={styles.staticList}>
         {PROMPTS.map((prompt) => (

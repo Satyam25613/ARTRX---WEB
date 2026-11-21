@@ -9,13 +9,13 @@ const STEPS = [
     icon: PenTool,
     title: "Create",
     description:
-      "Thanvi designs simple, guided illustration pads with gentle prompts — like “Draw Your Family” or “What's Your Favorite Food?”",
+      "Thanvi creates illustrated prompt sheets with gentle questions — like “Draw Your Family” or “What's Your Favorite Food?”",
   },
   {
     icon: Truck,
     title: "Deliver",
     description:
-      "The pads are brought directly to hospitals and nursing homes across New York, ready for a patient or resident to pick up.",
+      "ArtRX shares these pages with hospitals and nursing homes across New York, ready for a patient or resident to choose.",
   },
   {
     icon: HeartHandshake,

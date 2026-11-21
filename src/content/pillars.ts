@@ -8,7 +8,7 @@ export const PILLARS: Pillar[] = [
     icon: "smile",
     title: "Pediatric Hospital Care",
     description:
-      "Guided illustration pads for children facing medical stays — a gentle distraction, a safe outlet for big feelings, and a small moment of happiness during a hard time.",
+      "Illustrated drawing prompts for children during hospital stays, with room to color, imagine, and make each page their own.",
   },
   {
     id: "senior",
