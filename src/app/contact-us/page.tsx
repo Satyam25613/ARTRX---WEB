@@ -22,7 +22,8 @@ export default function ContactPage() {
           <p className={styles.eyebrow}>A note to ArtRX</p>
           <h1 id="contact-title">Start with a note.</h1>
           <p className={styles.lead}>
-            A question, an idea, or interest in volunteering can begin here.
+            Whether you&apos;re curious about the prompts or looking for a way to
+            help, this is a good place to begin.
           </p>
         </div>
         <div className={styles.contactAside}>
@@ -49,9 +50,9 @@ export default function ContactPage() {
             <h2 id="forms-title">What would you like to talk about?</h2>
           </div>
           <p>
-            Choose a message type and the form will adapt. You can switch your
-            choice at any time. If direct sending is unavailable, you can open
-            a prepared email to review and send.
+            Choose what you&apos;d like to share. You can switch at any time. If
+            direct sending isn&apos;t available, your email app will open a draft to
+            review.
           </p>
         </div>
 
@@ -67,7 +68,7 @@ export default function ContactPage() {
             <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
           </p>
           <p className={styles.deliveryNote}>
-            Your email app will open a message you can review before sending.
+            A prepared email opens for you to review and send.
           </p>
         </div>
       </section>

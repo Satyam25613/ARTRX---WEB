@@ -85,12 +85,12 @@
 }
 
 .heroCopy h1 {
-  max-width: 8ch;
+  max-width: 15ch;
   color: var(--color-cream);
-  font-size: clamp(4rem, 5vw, 5.6rem);
+  font-size: clamp(3.6rem, 5.25vw, 5.8rem);
   font-weight: 500;
   letter-spacing: -0.055em;
-  line-height: 0.96;
+  line-height: 1.01;
 }
 
 .heroLead {
@@ -250,10 +250,11 @@
 }
 
 .collectionHeading {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.55fr);
-  align-items: end;
-  gap: 1.2rem 4rem;
+  display: flex;
+  max-width: 740px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.95rem;
   margin: 0 clamp(0.2rem, 4vw, 3.5rem) clamp(2rem, 4vw, 3.2rem);
 }
 
@@ -262,7 +263,7 @@
 }
 
 .collectionHeading > p {
-  max-width: 44ch;
+  max-width: 58ch;
   color: var(--color-muted);
   font-size: 0.94rem;
   line-height: 1.75;
@@ -282,12 +283,12 @@
   margin: 0;
 }
 
-.process {
+.prompt {
   grid-column: 1;
   grid-row: 1 / span 2;
 }
 
-.prompt {
+.process {
   grid-column: 2;
   grid-row: 1;
 }
@@ -538,8 +539,9 @@
   }
 
   .heroCopy h1 {
-    max-width: 9ch;
-    font-size: clamp(4rem, 17vw, 5.5rem);
+    max-width: 13ch;
+    font-size: clamp(3.15rem, 12vw, 4.45rem);
+    line-height: 1.02;
   }
 
   .heroLead {
@@ -600,7 +602,6 @@
   }
 
   .collectionHeading {
-    grid-template-columns: 1fr;
     gap: 0.9rem;
     margin: 0 0 1.65rem;
   }
@@ -615,12 +616,12 @@
     gap: 1.2rem 0.75rem;
   }
 
-  .process {
+  .prompt {
     grid-column: 1 / -1;
     grid-row: auto;
   }
 
-  .prompt {
+  .process {
     grid-column: 1;
     grid-row: auto;
   }

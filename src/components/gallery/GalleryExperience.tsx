@@ -9,10 +9,39 @@ import styles from "./GalleryExperience.module.css";
 type FilterValue = GalleryCategory | "all";
 
 const FILTERS: { value: FilterValue; label: string }[] = [
-  { value: "all", label: "All work" },
+  { value: "all", label: "All pages" },
   { value: "prompt", label: "Prompt sheets" },
   { value: "in-progress", label: "In progress" },
-  { value: "drawing", label: "Completed drawings" },
+  { value: "drawing", label: "Finished drawings" },
+];
+
+const COLLECTION_STORIES: {
+  value: GalleryCategory;
+  eyebrow: string;
+  title: string;
+  description: string;
+}[] = [
+  {
+    value: "prompt",
+    eyebrow: "Illustrated prompts",
+    title: "Start with a question.",
+    description:
+      "Each page begins with a familiar idea and leaves the answer open. The drawing can go anywhere its maker takes it.",
+  },
+  {
+    value: "in-progress",
+    eyebrow: "In the making",
+    title: "See an idea take shape.",
+    description:
+      "A first line, a favorite color, one more detail. These pages show the small choices that make a drawing personal.",
+  },
+  {
+    value: "drawing",
+    eyebrow: "Finished drawings",
+    title: "A page all their own.",
+    description:
+      "The finished drawings keep each artist's point of view in the foreground, in every line and color.",
+  },
 ];
 
 export function GalleryExperience({ items }: { items: GalleryItem[] }) {
@@ -107,49 +136,81 @@ export function GalleryExperience({ items }: { items: GalleryItem[] }) {
   return (
     <>
       <div className={styles.filters} role="group" aria-label="Filter gallery">
-        {FILTERS.map((filter) => (
-          <button
-            key={filter.value}
-            type="button"
-            aria-pressed={activeFilter === filter.value}
-            className={activeFilter === filter.value ? styles.filterActive : styles.filter}
-            onClick={() => selectFilter(filter.value)}
-          >
-            {filter.label}
-          </button>
-        ))}
+        {FILTERS.map((filter) => {
+          const count = filter.value === "all"
+            ? items.length
+            : items.filter((item) => item.category === filter.value).length;
+
+          return (
+            <button
+              key={filter.value}
+              type="button"
+              aria-pressed={activeFilter === filter.value}
+              aria-label={`${filter.label}, ${count} ${count === 1 ? "image" : "images"}`}
+              className={activeFilter === filter.value ? styles.filterActive : styles.filter}
+              onClick={() => selectFilter(filter.value)}
+            >
+              <span>{filter.label}</span>
+              <span className={styles.filterCount} aria-hidden="true">{count}</span>
+            </button>
+          );
+        })}
       </div>
 
-      <div className={styles.grid}>
-        {filtered.map((item, index) => (
-          <button
-            key={item.id}
-            type="button"
-            className={styles.item}
-            data-category={item.category}
-            style={{ animationDelay: `${Math.min(index, 8) * 42}ms` }}
-            onClick={() => openLightbox(item)}
-            aria-label={`Open image: ${item.title}`}
-          >
-            <span className={styles.itemInner}>
-              <span className={styles.imageWrap}>
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  fill
-                  loading={index === 0 ? "eager" : "lazy"}
-                  className={styles.image}
-                  sizes="(min-width: 1100px) 31vw, (min-width: 680px) 47vw, 94vw"
-                />
-              </span>
-              <span className={styles.itemInfo}>
-                <span className={styles.itemTitle}>{item.title}</span>
-                <span className={styles.itemCaption}>{item.caption}</span>
-              </span>
-            </span>
-          </button>
-        ))}
-      </div>
+      {COLLECTION_STORIES
+        .filter((story) => activeFilter === "all" || story.value === activeFilter)
+        .map((story) => {
+          const storyItems = items.filter((item) => item.category === story.value);
+          if (storyItems.length === 0) return null;
+
+          return (
+            <section
+              key={story.value}
+              className={styles.collection}
+              data-story={story.value}
+              aria-labelledby={`gallery-${story.value}-title`}
+            >
+              <header className={styles.collectionHeading}>
+                <p className={styles.collectionEyebrow}>{story.eyebrow}</p>
+                <h2 id={`gallery-${story.value}-title`}>{story.title}</h2>
+                <p className={styles.collectionDescription}>{story.description}</p>
+              </header>
+
+              <div className={styles.grid}>
+                {storyItems.map((item, index) => (
+                  <button
+                    key={item.id}
+                    type="button"
+                    className={styles.item}
+                    data-category={item.category}
+                    style={{ animationDelay: `${Math.min(index, 8) * 42}ms` }}
+                    onClick={() => openLightbox(item)}
+                    aria-label={`Open image: ${item.title}`}
+                  >
+                    <span className={styles.itemInner}>
+                      <span className={styles.imageWrap}>
+                        <Image
+                          src={item.src}
+                          alt={item.alt}
+                          fill
+                          loading={item.id === filtered[0]?.id ? "eager" : "lazy"}
+                          className={styles.image}
+                          sizes={index === 0
+                            ? "(min-width: 1100px) 62vw, (min-width: 680px) 96vw, 94vw"
+                            : "(min-width: 1100px) 31vw, (min-width: 680px) 47vw, 94vw"}
+                        />
+                      </span>
+                      <span className={styles.itemInfo}>
+                        <span className={styles.itemTitle}>{item.title}</span>
+                        <span className={styles.itemCaption}>{item.caption}</span>
+                      </span>
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </section>
+          );
+        })}
 
       {selectedItem && typeof document !== "undefined" ? createPortal(
         <div className={styles.overlay} onClick={(event) => {

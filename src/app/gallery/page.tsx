@@ -5,38 +5,33 @@ import { GALLERY_ITEMS } from "@/content/gallery-items";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "ArtRX Pads",
+  title: "The ArtRX Gallery",
   description:
-    "Explore ArtRX’s illustrated prompt sheets, drawings in progress, and finished artwork.",
+    "Explore the ArtRX prompts, the pages taking shape, and drawings shared along the way.",
   alternates: { canonical: "/gallery" },
 };
 
 export default function GalleryPage() {
   return (
     <div className={styles.pageShell}>
-      <Reveal><header className={styles.intro}>
-        <div>
-          <p className={styles.eyebrow}>ArtRX · Gallery</p>
-          <h1>ArtRX Pads</h1>
-        </div>
-        <div className={styles.introAside}>
-          <p>
-            Browse illustrated prompt sheets, drawings in progress, and
-            finished artwork. Choose a group below, or open an image for a
-            closer look.
+      <Reveal>
+        <header className={styles.intro}>
+          <p className={styles.eyebrow}>The ArtRX gallery</p>
+          <h1>Every page begins with a question.</h1>
+          <p className={styles.introLead}>
+            A favorite food. A remembered place. Something still to come.
+            Explore the prompts, the making, and the drawings shared along the
+            way.
           </p>
           <p className={styles.privacyNote}>
-            Images are shown without maker names, health details, or facility
-            names.
+            Artist names and care-setting details are left out of this collection.
           </p>
-        </div>
       </header>
       </Reveal>
 
-      <Reveal delay={60}><section id="prompt-sheets" className={styles.gallery} aria-label="ArtRX image gallery">
+      <section id="prompt-sheets" className={styles.gallery} aria-label="ArtRX gallery collection">
         <GalleryExperience items={GALLERY_ITEMS} />
       </section>
-      </Reveal>
     </div>
   );
 }

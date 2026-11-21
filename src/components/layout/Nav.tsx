@@ -34,23 +34,22 @@ export function Nav() {
   const mobileNavRef = useRef<HTMLElement>(null);
   const dockRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLSpanElement>(null);
-  const previousPathnameRef = useRef(pathname);
 
   function closeMobileMenu() {
     setOpen(false);
     menuToggleRef.current?.focus();
   }
 
-  // Keep the menu in sync with route changes, including browser Back/Forward.
+  // Close the mobile menu when browser Back or Forward changes the route.
   useEffect(() => {
-    if (previousPathnameRef.current !== pathname) {
-      previousPathnameRef.current = pathname;
-      if (open) {
-        setOpen(false);
-        menuToggleRef.current?.focus();
-      }
+    function onPopState() {
+      setOpen(false);
+      menuToggleRef.current?.focus();
     }
-  }, [open, pathname]);
+
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, []);
 
   // While the overlay is open: lock background scroll, allow Escape to close,
   // and move focus into the menu for keyboard and screen-reader users.
@@ -139,6 +138,7 @@ export function Nav() {
             href="/"
             className={styles.brand}
             aria-current={isCurrentRoute(pathname, "/") ? "page" : undefined}
+            onClick={() => { if (open) closeMobileMenu(); }}
           >
             <span className={styles.brandMark} aria-hidden="true">
               <Image

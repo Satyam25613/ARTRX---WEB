@@ -20,9 +20,10 @@ export default function AboutFounderPage() {
             <p className={styles.eyebrow}>ArtRX founder</p>
             <h1 id="about-title">Meet Thanvi Suvva.</h1>
             <p className={styles.lead}>
-              Thanvi Suvva is a student with interests in art and science. She
-              created ArtRX to share illustrated prompts and art activities
-              with children in hospitals and older adults in nursing homes.
+              ArtRX began with Thanvi Suvva&apos;s interests in art and science, and
+              a simple idea: a familiar question can help someone begin. Her
+              illustrated prompts give children in hospitals and older adults
+              in nursing homes room to draw, remember, and imagine.
             </p>
             <Link href="/gallery" className={styles.action}>
               Explore the drawing prompts <span aria-hidden="true">↗</span>
@@ -36,15 +37,14 @@ export default function AboutFounderPage() {
         <section className={styles.idea} aria-labelledby="idea-title">
           <div className={styles.ideaHeading}>
             <p className={styles.eyebrow}>The idea</p>
-            <h2 id="idea-title">A prompt can open a conversation.</h2>
+            <h2 id="idea-title">A prompt is an invitation, not an instruction.</h2>
           </div>
           <div className={styles.ideaBody}>
             <p>
-              ArtRX shares illustrated prompts and art activities with children
-              facing medical circumstances and older adults in nursing homes.
-              The pages begin with familiar subjects—family, favorite foods,
-              animals, and memories—and leave room for each person to make the
-              idea their own.
+              A favorite food, a family, a place you remember. Each prompt
+              starts with something familiar and leaves space for the artist&apos;s
+              own answer. It might be a drawing, a few colors, or simply a page
+              that feels theirs. There is no right way to make art here.
             </p>
           </div>
         </section>
@@ -69,13 +69,10 @@ export default function AboutFounderPage() {
             <h2 id="team-title">Jiley Diego</h2>
             <p className={styles.teamRole}>Student · Artist</p>
             <p className={styles.body}>
-              Jiley Diego is a student and artist whose interests span art,
-              medicine, and scientific innovation. She is curious about fields
-              including gene editing, regenerative medicine, and biotechnology,
-              and how new discoveries might shape the future of healthcare.
-              Jiley sees creativity as an important part of how people imagine
-              and communicate new ideas. Through community outreach, she hopes
-              to bring her interests in science and art together.
+              Jiley is a student and artist curious about gene editing,
+              regenerative medicine, and biotechnology. She wonders how these
+              ideas may shape the future of care and brings that curiosity to
+              ArtRX&apos;s community outreach and art.
             </p>
           </div>
         </section>
@@ -100,13 +97,9 @@ export default function AboutFounderPage() {
             <h2 id="zander-title">Zander</h2>
             <p className={styles.teamRole}>Student · Artist</p>
             <p className={styles.body}>
-              Zander is a student and artist with wide-ranging interests,
-              especially in animal behavior and the challenges animals face
-              around the world. He sees art as something people can share and
-              find joy in, including during difficult times in hospital.
-              Looking ahead, Zander hopes to explore connections between art
-              and animals and how creative expression might bring joy across
-              species. He believes care should extend to animals as well as
+              Zander is a student and artist interested in animal behavior and
+              the challenges animals face. He believes art can bring joy in
+              hard times, and that care should extend to animals as well as
               people.
             </p>
           </div>
@@ -119,11 +112,12 @@ export default function AboutFounderPage() {
             <p className={styles.eyebrow}>Contact ArtRX</p>
             <h2 id="contact-panel-title">Have a question or want to get involved?</h2>
             <p className={styles.contactPanelText}>
-              Choose general inquiry or volunteer interest on the contact page.
+              Whether you have a question or want to lend a hand, there is room
+              for both on the contact page.
             </p>
           </div>
           <Link href="/contact-us" className={styles.contactPanelAction}>
-            Go to contact page <span aria-hidden="true">↗</span>
+            Start a conversation <span aria-hidden="true">↗</span>
           </Link>
         </section>
       </Reveal>

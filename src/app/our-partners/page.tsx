@@ -6,22 +6,22 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "Our Partners",
   description:
-    "Learn about ArtRX and find a starting point for questions from care teams, volunteers, and the wider community.",
+    "Learn how ArtRX brings illustrated drawing prompts into care settings, and find a way to ask a question or get involved.",
   alternates: { canonical: "/our-partners" },
 };
 
 const CONTACT_PATHS = [
   {
     title: "Care teams",
-    body: "Ask a question about ArtRX’s illustrated prompts or art activities through the General inquiry form.",
+    body: "If a prompt might suit your community, ask how ArtRX's pages and activities could fit.",
   },
   {
     title: "Volunteers",
-    body: "If you would like to ask about volunteering, choose Volunteer interest on the Contact page.",
+    body: "Want to give time, skills, or ideas? Tell us what you would enjoy doing.",
   },
   {
-    title: "Everyone else",
-    body: "Share a question, an idea, or feedback with the General inquiry form.",
+    title: "Families and neighbors",
+    body: "Curious about the project, or have a thought to share? We would be glad to hear from you.",
   },
 ];
 
@@ -37,16 +37,16 @@ export default function OurPartnersPage() {
         <section className={styles.hero} aria-labelledby="partners-title">
           <div className={styles.heroCopy}>
             <p className={styles.eyebrow}>ArtRX · Our Partners</p>
-            <h1 id="partners-title">Connections begin with a conversation.</h1>
+            <h1 id="partners-title">A little creativity can bring people together.</h1>
             <p className={styles.lead}>
-              ArtRX shares illustrated drawing prompts and art activities with
-              children facing medical circumstances and older adults in nursing
-              homes. Care teams, volunteers, families, and curious visitors are
-              welcome to get in touch.
+              ArtRX shares illustrated drawing prompts with children in
+              hospitals and older adults in nursing homes. We welcome care
+              teams, volunteers, families, and neighbors who want to learn more
+              or help.
             </p>
             <div className={styles.actions}>
               <Link className={styles.action} href="/contact-us">
-                Start a conversation <span aria-hidden="true">↗</span>
+                Find a way to connect <span aria-hidden="true">↗</span>
               </Link>
               <Link className={styles.secondaryAction} href="/gallery">
                 Explore the gallery
@@ -133,10 +133,10 @@ export default function OurPartnersPage() {
         <section className={styles.listingSection} aria-labelledby="listing-title">
           <div className={styles.sectionIntro}>
             <p className={styles.eyebrow}>A place to begin</p>
-            <h2 id="listing-title">What brings you here?</h2>
+            <h2 id="listing-title">Where would you like to begin?</h2>
             <p>
-              Choose the message that fits. Each option leads to a simple way
-              to contact ArtRX.
+              Whether you care for someone, want to volunteer, or are simply
+              curious, there is a place to start.
             </p>
           </div>
 
