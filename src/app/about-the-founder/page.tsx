@@ -17,7 +17,7 @@ export default function AboutFounderPage() {
       <Reveal>
         <section className={styles.founder} aria-labelledby="about-title">
           <div className={styles.founderCopy}>
-            <p className={styles.eyebrow}>People behind ArtRX</p>
+            <p className={styles.eyebrow}>ArtRX founder</p>
             <h1 id="about-title">Meet Thanvi Suvva.</h1>
             <p className={styles.lead}>
               Thanvi Suvva is a student with interests in art and science. She

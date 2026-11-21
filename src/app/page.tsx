@@ -159,7 +159,7 @@ export default function HomePage() {
             in care settings.
           </p>
           <Link href="/about-the-founder" className={styles.lightLink}>
-            Meet Thanvi and Jiley <span aria-hidden="true">↗</span>
+            Meet Thanvi and the team <span aria-hidden="true">↗</span>
           </Link>
         </div>
         <figure className={styles.aboutArtwork}>
